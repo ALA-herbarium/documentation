@@ -1,2 +1,5 @@
-# documentation
-General documentation for ALA operations
+# ALA Herbarium documentation
+
+_General documentation for ALA operations_
+
+
