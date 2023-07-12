@@ -46,6 +46,8 @@ or informational. The contents of columns with an asterisk (“*”)
    
 **Geography**
 
+ * `country`: (optional) For reference only
+ * `state`: (optional) For reference only
  * `higher_geog*`: The finest resolution for the name of a geographic
    area, as found in the Arctos [Places and Events search][3]. Select
    ‘Geography’ in the initial dropdown. Copy the text (in black font)
@@ -59,8 +61,6 @@ or informational. The contents of columns with an asterisk (“*”)
    is the _opposite_ of the system used in Higher Geography.  Remove
    any habitat information that is not integral to refinding a place,
    and enter it in the habitat field.
- * `state`: (optional) For reference only
- * `country`: (optional) For reference only
  * `latitude_dms`: If the original label uses Degrees, Minutes,
    Seconds for coordinates, enter the verbatim text here. Convert the
    coordinates to decimal degrees using online tools ([FCC][4],
