@@ -7,8 +7,8 @@
  * Camera stand high, its top aligned with bottom of ‘Herb sheet’ sticker
  * Horizontal boom at maximum extension
  * Place color strip in line with ruler
- * Position specimen against frame at the back, and snug with ruler
-      on the right.
+ * Position specimen snug against frame at the back, and snug with
+   ruler on the right.
       
 **Cryptogam envelopes**
 
@@ -25,7 +25,8 @@
 
 ## Lights
 
-Switch on large LED lamps
+Switch on large LED lamps. Note that they seem to take a full minute
+to get to maximum brightness and whiteness.
 
 ## Camera (Canon EOS 5D Mk IV)
 
@@ -38,7 +39,7 @@ Switch on large LED lamps
     200), White Balance (AWB), Aperture (f8), Shutter speed (~1/10),
     Focus mode (Manual).
 
-**Set focus**
+**Set lens focus manually**
 
  * Make sure the camera lens is set to MF (Manual focus), and the USB
    connection is unplugged
@@ -51,6 +52,25 @@ Switch on large LED lamps
    the best possible focus. 
  * If you encounter a very thick specimen, you may need to stand on
    the table again and readjust the gross focus.
+
+## Running the script
+
+ * On the digitization Mac, find the ‘`digitization`’ folder on the
+   Desktop and double-click ‘`digitize`’. It is a (Bash) shell-script
+   program and will open a Terminal window and run in that.
+ * Follow the instructions!
+ 
+**Tweaking the shutter speed**
+
+The only parameter in the script which may need tweaking is the
+camera’s shutter speed. In general we want the minimum possible
+aperture, to give maximum depth-of-field, so to adjust exposure we
+might tweak the shutter speed. Because the specimen and camera are
+unmoving and quite stable, we can use long shutter speeds (down to 1/2
+second).  If you need to try a longer shutter speed to get more
+brightness, edit the `SHUTTER=...` value on line ~16. Allowable values
+are in `camera_options.txt` file, near the bottom. Some possible
+values: 24 = 1/8, 26 = 1/13, 28 = 1/20, 32 = 1/50, 35 = 1/100.
  
 ## Troubleshooting
 
