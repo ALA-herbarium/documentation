@@ -27,5 +27,6 @@ directory on the TACC server).
     * blank out the URLs of the image and preview
     * change the relationship from `shows cataloged_item` to `delete`
     * Save
+ * Reload the main page to see that the desired image has gone.
 
 [1]: https://docs.google.com/spreadsheets/d/1XeUaASrotaScyUFZGNRvRBPM7411-73SwoVvRQDm_oA
