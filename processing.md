@@ -22,6 +22,8 @@
     * Double-check (download Arctos data for the accession and check for
       errors)
 
+![Processing flow](img/flow.jpg)
+
 ## Poster
 
 It would be great to make a big, laminated poster to stick on the wall
