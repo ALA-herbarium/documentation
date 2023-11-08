@@ -15,21 +15,24 @@ digraph flow {
         r2 [label="Route 2: 'barcode before GUID'\n(have labels)",
             shape=plaintext]
     }
-    entry [label="Enter data into spreadsheet",
-           color=red]
-    entry2 [label="Batch load metadata into Arctos",
-           color=blue]
-    guid1 [label="GUIDs assigned by Arctos",shape=oval]
-    print [label="Print labels from Arctos, with GUIDs.\nGenerate spreadsheet 2 with list of GUIDs",
-           color=blue]
+    //
+    subgraph clusterLABEL {
+        style=dashed
+        subgraph {
+            rank=same
+            LABELS [shape=plaintext]
+            entry [label="Enter data into spreadsheet",
+                   color=red]
+        }
+        entry2 [label="Batch load metadata into Arctos",
+                color=blue]
+        guid1 [label="GUIDs assigned by Arctos",shape=oval]
+        print [label="Print labels from Arctos, with GUIDs.\nGenerate spreadsheet 2 with list of GUIDs",
+               color=blue]
+    }
     guid2 [label="GUIDs assigned by Arctos",shape=oval]
     accn [label="Assess specimens.\nOpen issue in Github.\nCreate accession in Arctos.\nCreate task tracking and transcription spreadsheet.",color=blue]
     //
-    subgraph upload {
-        rank=same
-        upload1 [label="Upload images to TACC",color=blue]
-        upload2 [label="Upload images to TACC",color=blue]
-    }
     //
     subgraph tl {
         rank=same
@@ -39,12 +42,16 @@ digraph flow {
                color=blue]
         }
     //
-    subgraph bc {
+    subgraph clusterbc {
+        style=dashed
         rank=same
         bc1 [label="Mount specimens; Add barcodes to sheets",
              color=red]
         bc2 [label="Mount specimens; Add barcodes to sheets",
              color=red]
+        bc2 -> MOUNTING [style=invis] // to force position
+        MOUNTING [shape=plaintext]
+
     }
     subgraph table {
         rank=same
@@ -53,10 +60,19 @@ digraph flow {
         table2 [label="Enter barcodes into task spreadsheet\n(and external IDs or other connecting data)",
                 color=red]
     }
-    subgraph photo {
-        rank=same
-        photo1 [label="Digitize.\nMove specimens to range",color=red]
-        photo2 [label="Digitize.\nMove specimens to range",color=red]
+    subgraph clusterdigit {        
+        style=dashed
+        subgraph photo {
+            rank=same
+            DIGITIZATION [shape=plaintext]
+            photo1 [label="Digitize.\nMove specimens to range",color=red]
+            photo2 [label="Digitize.\nMove specimens to range",color=red]
+        }
+        subgraph upload {
+            rank=same
+            upload1 [label="Upload images to TACC",color=blue]
+            upload2 [label="Upload images to TACC",color=blue]
+        }
     }
     subgraph batch {
         rank=same
@@ -67,7 +83,7 @@ digraph flow {
     linkp [label="Batchload from task sheet: link image URLs",
            color=blue]
     dc [label="Double-check a subset of specimen records",color=blue]
-    issue2 [label="Close Github issue\nEND",color=blue]  
+    issue2 [label="Close Github issue; archive spreadsheets and batchload files.",color=blue]
     //
     // EDGES 1
     r1 -> accn [style=invis]
@@ -96,7 +112,7 @@ digraph flow {
     guid2 -> linkp
     //
     // EDGES joint
-    linkp -> dc -> issue2
+    linkp -> dc -> issue2 -> END
 }
 //     //
 //     icms -> csv1 ;
