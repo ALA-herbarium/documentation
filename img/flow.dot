@@ -15,11 +15,13 @@ digraph flow {
         r2 [label="Route 2: 'barcode before GUID'\n(have labels)",
             shape=plaintext]
     }
-    entry [label="Enter data into Arctos, one-by-one (or batch)",
+    entry [label="Enter data into spreadsheet",
            color=red]
+    entry2 [label="Batch load metadata into Arctos",
+           color=blue]
     guid1 [label="GUIDs assigned by Arctos",shape=oval]
-    print [label="Print labels from Arctos, with GUIDs",
-           color=red]
+    print [label="Print labels from Arctos, with GUIDs.\nGenerate spreadsheet 2 with list of GUIDs",
+           color=blue]
     guid2 [label="GUIDs assigned by Arctos",shape=oval]
     accn [label="Assess specimens.\nOpen issue in Github.\nCreate accession in Arctos.\nCreate task tracking and transcription spreadsheet.",color=blue]
     //
@@ -46,7 +48,7 @@ digraph flow {
     }
     subgraph table {
         rank=same
-        table1 [label="Enter barcodes and GUIDs into task spreadsheet",
+        table1 [label="Enter barcodes to GUIDs\ninto task spreadsheet 2",
                 color=red]
         table2 [label="Enter barcodes into task spreadsheet\n(and external IDs or other connecting data)",
                 color=red]
@@ -58,7 +60,7 @@ digraph flow {
     }
     subgraph batch {
         rank=same
-        batch1 [label="Batchload from task sheet: add barcode",color=blue]
+        batch1 [label="Batchload from sheet 2:\nadd barcode to GUID",color=blue]
         batch2 [label="Batchload ALL data from task sheet, incl. barcode",
                 color=blue]
     }
@@ -70,7 +72,8 @@ digraph flow {
     // EDGES 1
     r1 -> accn [style=invis]
     accn -> entry
-    entry -> guid1
+    entry -> entry2
+    entry2 -> guid1
     guid1 -> print
     print -> bc1
     bc1 -> table1
