@@ -55,7 +55,7 @@ digraph flow {
     }
     subgraph table {
         rank=same
-        table1 [label="Enter barcodes to GUIDs\ninto task spreadsheet 2",
+        table1 [label="Add barcodes to GUIDs\ninto task spreadsheet 2",
                 color=red]
         table2 [label="Enter barcodes into task spreadsheet\n(and external IDs or other connecting data)",
                 color=red]
@@ -80,7 +80,7 @@ digraph flow {
         batch2 [label="Batchload ALL data from task sheet, incl. barcode",
                 color=blue]
     }
-    linkp [label="Batchload from task sheet: link image URLs",
+    linkp [label="Batchload from task sheet: link image URLs to GUIDs",
            color=blue]
     dc [label="Double-check a subset of specimen records",color=blue]
     issue2 [label="Close Github issue; archive spreadsheets and batchload files.",color=blue]
