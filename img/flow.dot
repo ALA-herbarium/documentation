@@ -6,30 +6,82 @@ digraph flow {
     newrank=true;
     ranksep=0.5
     //
+    // NODES
+    //
     subgraph labels {
         rank=same
-        r1 [label="Route 1\n'GUID before barcode'\n(no labels)",
-            color=green,style=filled]
-        r2 [label="Route 2\n'barcode before GUID'\n(have labels)",
-            color=green,style=filled]
+        r1 [label="Route 1: 'GUID before barcode'\n(no labels)",
+            shape=plaintext]
+        r2 [label="Route 2: 'barcode before GUID'\n(have labels)",
+            shape=plaintext]
+    }
+    entry [label="Enter data into Arctos, one-by-one (or batch)",
+           color=red]
+    guid1 [label="GUIDs assigned by Arctos",shape=oval]
+    print [label="Print labels from Arctos, with GUIDs",
+           color=red]
+    guid2 [label="GUIDs assigned by Arctos",shape=oval]
+    accn [label="Assess specimens.\nOpen issue in Github.\nCreate accession in Arctos.\nCreate task tracking and transcription spreadsheet.",color=blue]
+    //
+    subgraph upload {
+        rank=same
+        upload1 [label="Upload images to TACC",color=blue]
+        upload2 [label="Upload images to TACC",color=blue]
     }
     //
-    r1 -> entry
-    entry [label="Enter data into Arctos,\none-by-one (or batch)",
-           color=red]
+    subgraph tl {
+        rank=same
+        trans [label="Trascribe label data\ninto spreadsheet, from photo",
+               color=red] 
+        link  [label="Extract data from foreign DB\nusing linking keys",
+               color=blue]
+        }
+    //
+    subgraph bc {
+        rank=same
+        bc1 [label="Mount specimens; Add barcodes to sheets",
+             color=red]
+        bc2 [label="Mount specimens; Add barcodes to sheets",
+             color=red]
+    }
+    subgraph table {
+        rank=same
+        table1 [label="Enter barcodes and GUIDs into task spreadsheet",
+                color=red]
+        table2 [label="Enter barcodes into task spreadsheet\n(and external IDs or other connecting data)",
+                color=red]
+    }
+    subgraph photo {
+        rank=same
+        photo1 [label="Digitize.\nMove specimens to range",color=red]
+        photo2 [label="Digitize.\nMove specimens to range",color=red]
+    }
+    subgraph batch {
+        rank=same
+        batch1 [label="Batchload from task sheet: add barcode",color=blue]
+        batch2 [label="Batchload ALL data from task sheet, incl. barcode",
+                color=blue]
+    }
+    linkp [label="Batchload from task sheet: link image URLs",
+           color=blue]
+    dc [label="Double-check a subset of specimen records",color=blue]
+    issue2 [label="Close Github issue\nEND",color=blue]  
+    //
+    // EDGES 1
+    r1 -> accn [style=invis]
+    accn -> entry
     entry -> guid1
-    guid1 [label="GUIDs assigned\nbyArctos",shape=oval]
     guid1 -> print
-    print [label="Print labels from Arctos\nwith GUIDs",
-           color=red]
     print -> bc1
     bc1 -> table1
     table1 -> photo1
     photo1 -> upload1
     upload1 -> batch1
-    batch1 -> linkp1
+    batch1 -> linkp
     //
-    r2 -> bc2
+    // EDGES 2
+    r2 -> accn [style=invis]
+    accn -> bc2
     bc2 -> table2
     table2 -> photo2
     photo2 -> upload2
@@ -38,54 +90,10 @@ digraph flow {
     upload2 -> link
     link -> batch2
     batch2 -> guid2
-    guid2 [label="GUIDs assigned\nbyArctos",shape=oval]
-    guid2 -> linkp2
+    guid2 -> linkp
     //
-    subgraph upload {
-        rank=same
-        upload1 [label="Upload images",color=blue]
-        upload2 [label="Upload images",color=blue]
-    }
-    //
-    subgraph tl {
-        rank=same
-        trans [label="Trascribe label data\nfrom spreadsheet\nand photo",
-               color=red] 
-        link  [label="Extract data from foreign DB\nusing linking keys",
-               color=blue]
-        }
-    //
-    subgraph bc {
-        rank=same
-        bc1 [label="Mount specimens;\nAdd barcodes to sheets",
-             color=red]
-        bc2 [label="Mount specimens;\nAdd barcodes to sheets",
-             color=red]
-    }
-    subgraph table {
-        rank=same
-        table1 [label="Enter barcodes and GUIDs\ninto task spreadsheet",
-                color=red]
-        table2 [label="Enter barcodes\ninto task spreadsheet\n(and external IDs\nor other connecting data)",
-                color=red]
-    }
-    subgraph photo {
-        rank=same
-        photo1 [label="Digitize",color=red]
-        photo2 [label="Digitize",color=red]
-    }
-    subgraph batch {
-        rank=same
-        batch1 [label="Batchload from task sheet:\nadd barcode",color=blue]
-        batch2 [label="Batchload ALL data\nfrom task sheet, incl. barcode",color=blue]
-    }
-    subgraph linkp {
-        rank=same
-        linkp1 [label="Batchload from task sheet:\nlink image URLs",
-            color=blue]
-        linkp2 [label="Batchload from task sheet:\nlink image URLs",
-                color=blue]
-        }
+    // EDGES joint
+    linkp -> dc -> issue2
 }
 //     //
 //     icms -> csv1 ;
