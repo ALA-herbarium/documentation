@@ -6,7 +6,7 @@ These should be added as additional taxonomic identifications
 
 ## Other annotations
 
-These should be added as new _parts_ of type _media_ contained with
+These should be added as new _parts_ of type _media_ contained within
 the herbarium sheet _container_. To create:
 
  * Click on Parts tab in the operator's record view
@@ -22,7 +22,7 @@ the herbarium sheet _container_. To create:
  * Click “Create Part”
  * Return to the main Specimen view and you should see the new part in
    the “Parts” table.  See, e.g.,
-   [Herb:40073](https://arctos.database.museum/guid/UAM:Herb:40073)
+   [UAM:Herb:40073](https://arctos.database.museum/guid/UAM:Herb:40073)
    
 The annotation label contents can now be searched on in the main
 Arctos Catalog Search. Enter the search terms in the “Part Search”

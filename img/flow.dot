@@ -8,35 +8,34 @@ digraph flow {
     //
     // NODES
     //
-    subgraph labels {
-        rank=same
-        r1 [label="Route 1: 'GUID before barcode'\n(no labels)",
-            shape=plaintext]
-        r2 [label="Route 2: 'barcode before GUID'\n(have labels)",
-            shape=plaintext]
-    }
+    // subgraph labels {
+    //     rank=same
+    //     r1 [label="Route 1: 'GUID before barcode'\n(no labels)",
+    //         shape=plaintext]
+    //     r2 [label="Route 2: 'barcode before GUID'\n(have labels)",
+    //         shape=plaintext]
+    // }
     //
     subgraph clusterLABEL {
         style=dashed
         subgraph {
             rank=same
             LABELS [shape=plaintext]
-            entry [label="Enter data into spreadsheet",
+            entry [label="Enter data into G-spreadsheet",
                    color=red]
         }
         entry2 [label="Batch load metadata into Arctos",
                 color=blue]
         guid1 [label="GUIDs assigned by Arctos",shape=oval]
-        print [label="Print labels from Arctos, with GUIDs.\nGenerate spreadsheet 2 with list of GUIDs",
+        print [label="Print labels from Arctos, with GUIDs.\nGenerate G-spreadsheet 2 with list of GUIDs",
                color=blue]
     }
-    guid2 [label="GUIDs assigned by Arctos",shape=oval]
-    accn [label="Assess specimens.\nOpen issue in Github.\nCreate accession in Arctos.\nCreate task tracking and transcription spreadsheet.",color=blue]
+    accn [label="1. Assess specimens.\n2. Create accession in Arctos.\n3. Open issue in Github quoting Accn#.\n4. Create tracking/transcription Google spreadsheet, quoting Accn#.",color=blue]
     //
     //
     subgraph tl {
         rank=same
-        trans [label="Trascribe label data\ninto spreadsheet, from photo",
+        trans [label="Trascribe label data\ninto G-spreadsheet, from photo",
                color=red] 
         link  [label="Extract data from foreign DB\nusing linking keys",
                color=blue]
@@ -45,9 +44,9 @@ digraph flow {
     subgraph clusterbc {
         style=dashed
         rank=same
-        bc1 [label="Mount specimens; Add barcodes to sheets",
+        bc1 [label="Mount specimens; use new labels;\nadd barcodes to sheets",
              color=red]
-        bc2 [label="Mount specimens; Add barcodes to sheets",
+        bc2 [label="Mount specimens;\nAdd barcodes to sheets",
              color=red]
         bc2 -> MOUNTING [style=invis] // to force position
         MOUNTING [shape=plaintext]
@@ -55,9 +54,9 @@ digraph flow {
     }
     subgraph table {
         rank=same
-        table1 [label="Add barcodes to GUIDs\ninto task spreadsheet 2",
+        table1 [label="Add barcodes to GUIDs\ninto task G-spreadsheet 2",
                 color=red]
-        table2 [label="Enter barcodes into task spreadsheet\n(and external IDs or other connecting data)",
+        table2 [label="Enter barcodes into task G-spreadsheet\n(and external IDs or other connecting data)",
                 color=red]
     }
     subgraph clusterdigit {        
@@ -76,18 +75,34 @@ digraph flow {
     }
     subgraph batch {
         rank=same
-        batch1 [label="Batchload from sheet 2:\nadd barcode to GUID",color=blue]
-        batch2 [label="Batchload ALL data from task sheet, incl. barcode",
+        batch1 [label="Batchload from G-sheet 2:\nadd barcode to GUID",color=blue]
+        batch2 [label="Batchload ALL data from task G-sheet, incl. barcode",
                 color=blue]
     }
-    linkp [label="Batchload from task sheet: link image URLs to GUIDs",
+    linkp [label="Batchload from task G-sheet: link image URLs to GUIDs",
            color=blue]
     dc [label="Double-check a subset of specimen records",color=blue]
-    issue2 [label="Close Github issue; archive spreadsheets and batchload files.",color=blue]
+    issue2 [label="Close Github issue; archive G-spreadsheets and batchload files.",color=blue]
+    subgraph {
+        rank=same
+        guid2
+        file
+        FILING
+    }
+    guid2 [label="GUIDs assigned by Arctos",shape=oval]
+    subgraph clusterfiling {
+        style=dashed
+        file [label="File specimens\ninto family, within family",color=red]
+        FILING [shape=plaintext]
+        carolyn
+        range
+    }
+    carolyn [label="Checked by Carolyn",color=red]
+    range [label="Move from\nlab to Range",color=red]
     //
     // EDGES 1
-    r1 -> accn [style=invis]
-    accn -> entry
+    // r1 -> accn [style=invis]
+    accn -> entry [label="Route 1: no labels"]
     entry -> entry2
     entry2 -> guid1
     guid1 -> print
@@ -99,8 +114,8 @@ digraph flow {
     batch1 -> linkp
     //
     // EDGES 2
-    r2 -> accn [style=invis]
-    accn -> bc2
+//    r2 -> accn [style=invis]
+    accn -> bc2 [label="Route 2:\nhave labels"]
     bc2 -> table2
     table2 -> photo2
     photo2 -> upload2
@@ -113,6 +128,10 @@ digraph flow {
     //
     // EDGES joint
     linkp -> dc -> issue2 -> END
+    // EDGES specimens
+    photo1 -> file
+    photo2 -> file
+    file -> carolyn -> range -> END
 }
 //     //
 //     icms -> csv1 ;
