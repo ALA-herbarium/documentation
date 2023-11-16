@@ -20,6 +20,7 @@ data into Arctos.
  * species                            : string/CV
  * det by name (opt)                  : string/CV
  * det by date (opt)                  : yyyy-mm-dd
+ * indiv. plant description (opt)     : string
  * higher geography                   : string/CV
  * locality (fine scale to broad)     : string
  * habitat (opt)                      : string
