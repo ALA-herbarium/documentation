@@ -1,7 +1,10 @@
-# Taxonworks 
+# Taxonworks
+
+## Instances
+
+Steffi’s _Ephedra_ project is at <https://sfg.taxonworks.org/>
 
 ## Creating _ex_ and _in_ for names
-https://sfg.taxonworks.org/
 
  1. Using the “_new task_” interface, create the valid name (T1). 
     * Add (just) a Person as an Author (the _ex_ person)
@@ -22,5 +25,3 @@ The extra edit in 3 is necessary unfortunately: setting both
 Publication and Author in step one, and performing step 2 will not
 trigger the correct ex/in label.
 
-
-      
