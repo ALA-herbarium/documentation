@@ -35,7 +35,7 @@ digraph flow {
     //
     subgraph tl {
         rank=same
-        trans [label="Trascribe label data\ninto G-spreadsheet, from photo",
+        trans [label="Trascribe label data\ninto G-spreadsheet from photo,\nif not yet done",
                color=red] 
         link  [label="Extract data from foreign DB\nusing linking keys",
                color=blue]
@@ -56,7 +56,7 @@ digraph flow {
         rank=same
         table1 [label="Add barcodes to GUIDs\ninto task G-spreadsheet 2",
                 color=red]
-        table2 [label="Enter barcodes into task G-spreadsheet\n(and external IDs or other connecting data)",
+        table2 [label="Enter data into task G-spreadsheet.\nMinimum: barcode; plus external IDs/collector info.\nOptionally: transcribe all data.",
                 color=red]
     }
     subgraph clusterdigit {        
