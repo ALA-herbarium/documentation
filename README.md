@@ -25,4 +25,5 @@ _General documentation for ALA operations_
 ## Other
 
  * [Taxonworks](taxonworks.md)
+ * [Learning SQL](learning_ssql.md)
 

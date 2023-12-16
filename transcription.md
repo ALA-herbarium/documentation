@@ -134,7 +134,7 @@ If transcribing from a spreadsheet prepopulated with GUIDs:
    you have been asked to).
  * **Enter only the data sections (above) that are missing.**
  * **NOTE**: if the collectors are correct, except that there is an
-   ‘unknown’ in the position of first collector, please full in all
+   ‘unknown’ in the position of first collector, please fill in all
    collectors - the whole collector set will be overwritten.
 
 [1]: https://arctos.database.museum/taxonomy.cfm
