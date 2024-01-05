@@ -1,28 +1,35 @@
 # Image management
 
+## Verifying images
+
+If you would like to verify that the images are the correct ones for a
+record, add an attribute to the record (either manually or using the
+bulk loader): `type=processing history`, `value=verified to source`,
+with the word ‘image’ somewhere in the Remarks, adding your username
+and the date.
+
 ## Poor images
 
- * _If_ a record is found for which there is i) a low resolution DNG or
-   JPG, or ii) an out of focus DNG or JPG, or iii) the wrong image
-   for the record (according to barcode and specimen metadata)
-    _then_:
-    * _if_ the record _also_ has better quality media attached
-      _then_: 
-       * Delete the poor quality or incorrect media (see below)
-    * _else_:
-       * (Updated 2024-01-05): **(i)** Add an attribute to the record
-         (either manually or using the bulk loader): `type=processing
-         history`, `value=needs reimaging`. A remark is only needed in
-         one situation: if the DNG is correct but the JPG is not
-         (i.e., JPG out of focus, low resolution, wrong specimen
-         sheet), in which case include the words (upper or lower case)
-         ‘regenerate’ and ‘jpeg’ (or ‘jpg’); this information will
-         permit the fixing of this quality issue without refinding the
-         specimen and reimaging it. _Without_ this flag in the
-         remarks, the specimen will be re-imaged (adding new DNG and
-         JPG), whatever the reason. **(ii)** _Delete_ all the
-         incorrect, blurred, low resolution images, DNG and/or JPG
-         (see below).
+_If_ a record is found for which there is i) a low resolution DNG or
+JPG, or ii) an out of focus DNG or JPG, or iii) the wrong image for
+the record (according to barcode and specimen metadata) _then_:
+
+ * _if_ the record _also_ has better quality media attached
+   _then_: 
+    * Delete the poor quality or incorrect media (see below)
+ * _else_:
+    * (Updated 2024-01-05): **(i)** Add an attribute to the record
+      (either manually or using the bulk loader): `type=processing
+      history`, `value=needs reimaging`. A remark is only needed in
+      one situation: if the DNG is correct but the JPG is not (i.e.,
+      JPG out of focus, low resolution, wrong specimen sheet), in
+      which case include the words (upper or lower case) ‘regenerate’
+      and ‘jpeg’ (or ‘jpg’); this information will permit the fixing
+      of this quality issue without refinding the specimen and
+      reimaging it. _Without_ this flag in the remarks, the specimen
+      will be re-imaged (adding new DNG and JPG), whatever the
+      reason. **(ii)** _Delete_ all the incorrect, blurred, low
+      resolution images, DNG and/or JPG (see below).
 
 ## Deleting media
 
