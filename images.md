@@ -27,9 +27,12 @@ the record (according to barcode and specimen metadata) _then_:
       and ‘jpeg’ (or ‘jpg’); this information will permit the fixing
       of this quality issue without refinding the specimen and
       reimaging it. _Without_ this flag in the remarks, the specimen
-      will be re-imaged (adding new DNG and JPG), whatever the
+      will be reimaged (adding new DNG and JPG), whatever the
       reason. **(ii)** _Delete_ all the incorrect, blurred, low
       resolution images, DNG and/or JPG (see below).
+
+After reimaging, the ‘needs reimaging’ attributes can be removed from
+many GUIDs as a batch, using the Attribute [bulk unload tool][1].
 
 ## Deleting media
 
@@ -47,3 +50,4 @@ directory on the TACC server).
     * Save
  * Reload the main page to see that the desired image has gone.
 
+[1]: https://arctos.database.museum/loaders/BulkUnLoadAttribute.cfm
