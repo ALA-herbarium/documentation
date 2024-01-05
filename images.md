@@ -10,8 +10,8 @@
       _then_: 
        * Delete the poor quality or incorrect media (see below)
     * _else_:
-       * (Updated 2024-01-05): Add an attribute to the record (either
-         manually or using the bulk loader): `type=processing
+       * (Updated 2024-01-05): **(i)** Add an attribute to the record
+         (either manually or using the bulk loader): `type=processing
          history`, `value=needs reimaging`. A remark is only needed in
          one situation: if the DNG is correct but the JPG is not
          (i.e., JPG out of focus, low resolution, wrong specimen
@@ -19,7 +19,10 @@
          ‘regenerate’ and ‘jpeg’ (or ‘jpg’); this information will
          permit the fixing of this quality issue without refinding the
          specimen and reimaging it. _Without_ this flag in the
-         remarks, the specimen will be re-imaged, whatever the reason.
+         remarks, the specimen will be re-imaged (adding new DNG and
+         JPG), whatever the reason. **(ii)** _Delete_ all the
+         incorrect, blurred, low resolution images, DNG and/or JPG
+         (see below).
 
 ## Deleting media
 
