@@ -8,10 +8,18 @@
     _then_:
     * _if_ the record _also_ has better quality media attached
       _then_: 
-       * Delete the poor quality media (see below)
+       * Delete the poor quality or incorrect media (see below)
     * _else_:
-       * Enter the GUID into the [GoogleSheet][1] we are using to
-         track these cases
+       * (Updated 2024-01-05): Add an attribute to the record (either
+         manually or using the bulk loader): `type=processing
+         history`, `value=needs reimaging`. A remark is only needed in
+         one situation: if the DNG is correct but the JPG is not
+         (i.e., JPG out of focus, low resolution, wrong specimen
+         sheet), in which case include the words (upper or lower case)
+         ‘regenerate’ and ‘jpeg’ (or ‘jpg’); this information will
+         permit the fixing of this quality issue without refinding the
+         specimen and reimaging it. _Without_ this flag in the
+         remarks, the specimen will be re-imaged, whatever the reason.
 
 ## Deleting media
 
@@ -29,4 +37,3 @@ directory on the TACC server).
     * Save
  * Reload the main page to see that the desired image has gone.
 
-[1]: https://docs.google.com/spreadsheets/d/1XeUaASrotaScyUFZGNRvRBPM7411-73SwoVvRQDm_oA
