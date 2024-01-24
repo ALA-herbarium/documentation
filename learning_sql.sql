@@ -10,6 +10,14 @@ WHERE    guid_prefix = 'UAM:Herb'
 ORDER BY guid
 LIMIT    50 ;
 
+-- casted as integer
+
+SELECT   guid, cat_num::integer, scientific_name
+FROM     flat
+WHERE    guid_prefix = 'UAM:Herb'
+ORDER BY cat_num::integer
+LIMIT    50 ;
+
 -- Another
 
 SELECT guid, scientific_name, family
