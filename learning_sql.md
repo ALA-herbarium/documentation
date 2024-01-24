@@ -1,5 +1,7 @@
 # Learning SQL for Arctos
 
+_(See these queries and more in a [single SQL file](learning_sql.sql))_
+
 **1.** The Arctos SQL interface tool is at [here][1]
 
 **2.** Write your SQL in an editor with syntax coloring, then paste it
@@ -7,8 +9,10 @@ into the box. Good, free coding editors are [BBEdit for Mac][2], and
 [NotePad++ for Windows][3], but there are thousands of others to
 choose from.
 
-**3.** As an Arctos user (i.e., not a developer) we can only use the `SELECT`
-statement of SQL. This greatly reduces what you have to learn. 
+**3.** As an Arctos user (i.e., not a developer) we can only use the
+`SELECT` statement of SQL (Not `INSERT`, `DELETE`, `UPDATE`...). This
+greatly reduces what you have to learn. Access via SQL is _read only_
+so you cannot mess anything up!
 
 **4.** You will find that almost all the data you need to query is in a
 single table in Arctos called `flat` - this is a composite, flattened
@@ -38,7 +42,7 @@ LIMIT    <how many lines you want>
    omitted in the Arctos box. 
  * `WHERE` and `ORDER BY` and LIMIT are optional, but be careful not
    to ask for a query that gives 100 MBs of results by mistake; use
-   LIMIT as you develop your SQL.
+   `LIMIT` as you develop your SQL.
 
 An example:
 
@@ -57,6 +61,27 @@ LIMIT 100
 
 **6.** Click the CSV button if you want to download the results.
 
+**7.** Sometimes you will find that not all the data you need is in
+the `flat` table. 
+
+There are hundreds of tables in Arctos, linked together via shared
+field values and identifiers. The basic goal in a relational database
+is to “normalize” the data, which means that no information element is
+stored redundantly (e.g., in two or fields or two records). For
+example, if there are two collections from the same place, the
+longitude and latitude of that place should not be stored twice in the
+same collections table. Note: the cached `flat` table is
+_denormalized_ table with lots of redundancy of this kind.
+
+The link between tables can be visualized in an Entity-Relationship
+(“ER”) diagram. There is no recent ER diagram for Arctos, but
+[here][7] is one from 2013.  You can however see a list of tables
+[here][8]; in the section ‘Constraints’ below the fields you can see
+which fields (‘OriginatesFrom’) link to fields in other tables
+(‘ReferencesColumn’).
+
+See the [SQL examples](learning_sql.sql) for how to `JOIN` tables.
+
 **7.** More resources:
 
  * The official [Arctos cheat sheet][4]
@@ -70,3 +95,5 @@ LIMIT 100
 [4]: https://docs.google.com/document/d/15e3b8WNErFPqg1SW-QNq0nI_RjiEEZjWQDznxIJNFHE
 [5]: https://github.com/ALA-herbarium/arctos-tools/tree/main/sql
 [6]: https://www.w3schools.com/sql/default.asp
+[7]: https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/arctos/Arctos_ERD_20130617_single.pdf
+[8]: https://arctos.database.museum/tblbrowse.cfm
