@@ -2,7 +2,7 @@
 
 _(See these queries and more in a [single SQL file](learning_sql.sql))_
 
-**1.** The Arctos SQL interface tool is at [here][1]
+**1.** The Arctos SQL interface tool is [here][1]
 
 **2.** Write your SQL in an editor with syntax coloring, then paste it
 into the box. Good, free coding editors are [BBEdit for Mac][2], and
@@ -24,7 +24,7 @@ make cross-table `JOIN`s in your SQL.  To see the fields in `flat` enter:
 SELECT * FROM flat LIMIT 1
 ```
 
-(do not omit the `LIMIT 1`!)
+(do not omit the `LIMIT 1`!) Or... see the field list [here][9].
 
 **5.** A basic `SELECT` statement goes like this:
 
@@ -82,7 +82,19 @@ which fields (‘OriginatesFrom’) link to fields in other tables
 
 See the [SQL examples](learning_sql.sql) for how to `JOIN` tables.
 
-**7.** More resources:
+**8.** As you start to write `WHERE` filters you will probably soon
+find [Regular Expressions][10] to be invaluable. These strings of
+wildcard symbols allow the matching of just about any substring you
+can imagine. In PostgreSL, you can apply them with the `~`
+operator. E.g. `WHERE guid ~ 'UAMb?:(Herb|ALA)'` will match ‘UAM:Herb’,
+‘UAMb:Herb’ and ‘UAM:Alg’.
+
+**9.** Even though this are ‘next level’ SQL, be aware that you can
+nest `SELECT` statements to query a table you create with an interior
+query: `SELECT * FROM (SELECT ....) AS a WHERE a.x ... ;`. Powerful
+stuff!
+
+**10.** More resources:
 
  * The official [Arctos cheat sheet][4]
  * Our [ALA collection of SQL for Arctos][5]
@@ -97,3 +109,5 @@ See the [SQL examples](learning_sql.sql) for how to `JOIN` tables.
 [6]: https://www.w3schools.com/sql/default.asp
 [7]: https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/arctos/Arctos_ERD_20130617_single.pdf
 [8]: https://arctos.database.museum/tblbrowse.cfm
+[9]: https://arctos.database.museum/tblbrowse.cfm?tbl=flat
+[10]: https://en.wikipedia.org/wiki/Regular_expression
