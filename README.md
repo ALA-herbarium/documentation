@@ -17,6 +17,7 @@ _General documentation for ALA operations_
  * [Image management in Arctos](images.md): creating and deleting
    image links, flagging poor images
  * [Adding information from annotaion labels](annotation_labels.md)
+ * [Using other identifiers](identifiers.md)
 
 ## Photographing specimens
 
