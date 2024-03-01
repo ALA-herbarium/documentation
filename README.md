@@ -18,6 +18,7 @@ _General documentation for ALA operations_
    image links, flagging poor images
  * [Adding information from annotaion labels](annotation_labels.md)
  * [Using other identifiers](identifiers.md)
+ * [Taxonomy](taxonomy.md)
 
 ## Photographing specimens
 
