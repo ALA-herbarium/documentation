@@ -1,5 +1,9 @@
 # Arctos one-by-one operations
 
+## Adding an identification
+
+ * 
+
 ## Adding a barcode to a specimen
 
  * Stick the physical barcode onto the herbarium sheet
