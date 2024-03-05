@@ -41,6 +41,65 @@ hierarchical terms get merged, possibly even for homonyms (see this
 for ALA have a single classification per source per name (on
 2024-02-29 this is true, [SQL][4]).
 
+### A proposal for a new Classification source
+
+[in progress]
+
+The problem with exixting classifications:
+
+ * Arctos Plants is an old and very uneven classification (add stats
+   on names with family, etc).
+ * The new WFO in Arctos comes via Global Names, which gives the
+   classification of the _accepted name_ for a synonym, not the
+   classification of the synonym itself.  It also lacks key metadata
+   for the name (display name, etc.). WFO also (appropriately) lists
+   multiple classifications for the same canonical name where
+   different instances (with diff. authors) exits. In Arctos this
+   creates data retrieval and display problems.
+   
+A problem with the current taxonomy model in Arctos:
+
+ * Arctos only uses canonocal names as name objects, so there is no
+   way to distinguish the same name with different authors.
+ * Arctos also specifies synonymy among canonical names, which again
+   precludes differentiating among synonymies that depend on
+   variations in author string.
+
+
+A proposed new classification (‘Alaska plants’) will:
+
+ * **Synonymy**: Use the new Flora of Alaska checklist as a rank 1
+   source for synonymy and accepted status, and use WFO as a rank 2
+   source.
+ * **Classification**: Use WFO as the source of higher taxonomy above genus
+ * Only have **one instance** of each canonical name. Where a name
+   exists in FoAK, that will be the full name chosen. For WFO? What
+   strategy?  How frequent is this an issue?
+   
+   Alnus sinuata a good example
+
+How specimens are searched for:
+
+The code is at https://github.com/ArctosDB/arctos-dev/blob/main/3.2.9/search.cfm
+
+From the taxonomy searcg page, these are the inputs:
+
+ * Exact match to name, identification order = 1: `search.cfm?taxon_name_id=`
+ * Exact match to name, identification order = 1 or more:
+   `search.cfm?taxon_name_id=...&identification_order=%3E0`
+ * “Used in identification, less strict match”, ?i.e., Exact match to
+   name, any identification order?: `search.cfm?scientific_name=...`
+ * Name used or related to used (looking up synonyms):
+   `search.cfm?taxon_name=...`
+
+Best practice: Add verbatim identification to get the Author string.
+
+Complete transcription:
+https://arctos.database.museum/guid/UAM:Herb:108266
+
+Update: https://handbook.arctosdb.org/how_to/How_to_Search_for_Specimens_with_Identification_and_Taxonomy.html
+
+
 ## Taxonomic concepts
 
 (to follow)

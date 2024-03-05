@@ -20,3 +20,12 @@
 Note: for this to work, the herbarium sheet container needs to have
 been created previously, usually in the ‘Bulk Edit Container’ tool.
 
+## All data from specimen entered
+
+When you are satisfied that all data for a specimen (that _can_ be)
+have been added to Arctos, add an attribute: `processing history` ->
+`label transcribed`. The [meaning][1] of this is “all inscriptions
+attached to this object have been transcribed”. This can then be used
+to find all ‘verified complete’ data records.
+
+[1]: https://arctos.database.museum/info/ctDocumentation.cfm?table=ctprocessing_history

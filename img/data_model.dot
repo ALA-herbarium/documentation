@@ -1,0 +1,166 @@
+digraph flow {
+    node [fontname="Helvetica",shape=plaintext]
+    edge [fontname="Helvetica"]
+    overlap=false
+    newrank=true
+    ranksep=0.5
+    rankdir=BT
+    //
+    // RECORD
+    record [label=<
+          <TABLE  BORDER="0" CELLBORDER="1"  CELLSPACING="0" BGCOLOR="bisque">
+          //
+          <TR>
+          <TD COLSPAN="2"><B>CATALOG RECORD</B><BR/><I>aka Collection Object</I></TD>
+          </TR>
+          //
+          <TR><TD ALIGN="LEFT"><I>p. key</I></TD>
+          <TD ALIGN="LEFT" BALIGN="LEFT" HREF="https://arctos.database.museum/tblbrowse.cfm?tbl=cataloged_item">cataloged_item.collection_object_id</TD></TR>
+          //
+          <TR>
+          <TD ALIGN="LEFT"><I>f. keys</I></TD>
+          <TD ALIGN="LEFT" BALIGN="LEFT" HREF="https://arctos.database.museum/tblbrowse.cfm?tbl=cataloged_item">cataloged_item.collection_id<BR/>cataloged_item.accn_id (=trans_id)</TD>
+          </TR>
+          //
+          <TR>
+          <TD ALIGN="LEFT"><I>flat</I></TD>
+          <TD ALIGN="LEFT" BALIGN="LEFT" HREF="https://arctos.database.museum/tblbrowse.cfm?tbl=flat">flat.collection_object_id<BR/>flat.guid (string)</TD>
+          </TR>
+          //
+          </TABLE>>
+          ]
+    //
+    // PART
+    //
+    part [
+          label=<
+          <TABLE  BORDER="0" CELLBORDER="1"  CELLSPACING="0">
+          <TR><TD COLSPAN="2"><B>PART</B></TD></TR>
+          <TR><TD ALIGN="LEFT"><I>default</I></TD>
+          <TD ALIGN="LEFT" HREF="https://arctos.database.museum/info/ctDocumentation.cfm?table=ctspecimen_part_name">part type = "whole organism" (ctspecimen_part_name)</TD></TR>
+          <TR><TD ALIGN="LEFT"><I>default</I></TD><TD ALIGN="LEFT" HREF="https://arctos.database.museum/info/ctDocumentation.cfm?table=ctcontainer_type">container type = "collection object" (ctcontainer_type)</TD></TR>
+          <TR><TD ALIGN="LEFT"><I>p. key</I></TD><TD ALIGN="LEFT">parts</TD></TR>
+          <TR><TD ALIGN="LEFT"><I>p. key</I></TD><TD ALIGN="LEFT">partdetail...[1], 2...</TD></TR>
+          </TABLE>>
+          //href="https://github.com/ALA-herbarium/documentation/blob/main/data_model.md#collection-object"
+          ]
+    part -> record [taillabel="n",headlabel="1"]
+    part -> parts [taillabel="1",headlabel="1"]
+    //
+    // PARTS
+    //
+    parts [
+          label=<
+          <TABLE  BORDER="0" CELLBORDER="1"  CELLSPACING="0">
+          //
+          <TR><TD COLSPAN="2"><B>CONTAINER</B><BR/><I>hierarchy</I></TD></TR>
+          //
+          <TR><TD ALIGN="LEFT"><I>p. key</I></TD>
+          <TD ALIGN="LEFT">... . ..s</TD></TR>
+          //
+          <TR><TD ALIGN="LEFT"><I>in `flat`</I></TD>
+          <TD ALIGN="LEFT">partdetail...container_path</TD></TR>
+          //
+          <TR><TD ALIGN="LEFT"><I>default</I></TD>
+          <TD ALIGN="LEFT" HREF="https://arctos.database.museum/info/ctDocumentation.cfm?table=ct...">container type = herbarium sheet (ctcontainer_type)</TD></TR>
+          <TR><TD ALIGN="LEFT"><I>default</I></TD>
+          <TD ALIGN="LEFT">barcode attached to herbarium sheet</TD></TR>
+          </TABLE>>
+          ]
+    //
+    // EVENT
+    //
+    event [
+          label=<
+          <TABLE  BORDER="0" CELLBORDER="1"  CELLSPACING="0">
+          //
+          <TR><TD COLSPAN="2"><B>EVENT</B></TD></TR>
+          //
+          <TR><TD ALIGN="LEFT"><I>p. key</I></TD>
+          <TD ALIGN="LEFT">... . ..s</TD></TR>
+          //
+          <TR><TD ALIGN="LEFT"><I>p. key</I></TD>
+          <TD ALIGN="LEFT">...</TD></TR>
+          //
+          </TABLE>>
+          ]
+    record -> event [taillabel="n",headlabel="1"]
+    //
+    // LOCALITY
+    //
+    locality [
+          label=<
+          <TABLE  BORDER="0" CELLBORDER="1"  CELLSPACING="0">
+          //
+          <TR><TD COLSPAN="2"><B>LOCALITY</B></TD></TR>
+          //
+          <TR><TD ALIGN="LEFT"><I>p. key</I></TD>
+          <TD ALIGN="LEFT">... . ..s</TD></TR>
+          //
+          <TR><TD ALIGN="LEFT"><I>p. key</I></TD>
+          <TD ALIGN="LEFT">...</TD></TR>
+          //
+          </TABLE>>
+          ]
+    event -> locality [taillabel="n",headlabel="1"]
+    //
+    // ACCESSION
+    //
+    accn [shape=plaintext,
+          label=<
+          <TABLE  BORDER="0" CELLBORDER="1"  CELLSPACING="0">
+          //
+          <TR><TD COLSPAN="2"><B>ACCESSION</B></TD></TR>
+          //
+          <TR><TD ALIGN="LEFT"><I>p. key</I></TD>
+          <TD ALIGN="LEFT">accn.accn_number (string)</TD></TR>
+          <TR><TD ALIGN="LEFT"><I>flat</I></TD>
+          <TD ALIGN="LEFT">flat.accn (string)</TD></TR>
+          </TABLE>>
+          ]
+    record -> accn [taillabel="n",headlabel="1",label="(via trans table)"]
+    //
+    // COLLECTION
+    //
+    collection [shape=plaintext,
+          label=<
+          <TABLE  BORDER="0" CELLBORDER="1"  CELLSPACING="0">
+          //
+          <TR>
+          <TD COLSPAN="2"><B>COLLECTION</B></TD>
+          </TR>
+          //
+          <TR>
+          <TD ALIGN="LEFT"><I>p. key</I></TD>
+          <TD ALIGN="LEFT" HREF="https://arctos.database.museum/tblbrowse.cfm?tbl=collection">collection.collection_id</TD>
+          </TR>
+          //
+          <TR>
+          <TD ALIGN="LEFT"><I>flat</I></TD>
+          <TD ALIGN="LEFT" HREF="https://arctos.database.museum/tblbrowse.cfm?tbl=collection">flat.collection_id</TD>
+          </TR>
+          //
+          <TR><TD ALIGN="LEFT"><I>values</I></TD>
+          <TD ALIGN="LEFT" BALIGN="LEFT">UAM:Herb=6,<BR/>UAMb:Herb=40,<BR/>UAM:Alg=106</TD></TR>
+          </TABLE>>
+          ]
+    record -> collection [taillabel="n",headlabel="1"]
+}
+
+    // TEMPLATE
+    // node [shape=plaintext,
+    //       label=<
+    //       <TABLE  BORDER="0" CELLBORDER="1"  CELLSPACING="0">
+    //       //
+    //       <TR><TD COLSPAN="2"><B>...</B></TD></TR>
+    //       //
+    //       <TR><TD ALIGN="LEFT"><I>p. key</I></TD>
+    //       <TD ALIGN="LEFT">... . ..s</TD></TR>
+    //       //
+    //       <TR><TD ALIGN="LEFT"><I>p. key</I></TD>
+    //       <TD ALIGN="LEFT">...</TD></TR>
+    //       //
+    //       <TR><TD ALIGN="LEFT"><I>default</I></TD>
+    //       <TD ALIGN="LEFT" HREF="https://arctos.database.museum/info/ctDocumentation.cfm?table=ct...">... (ct...)</TD></TR>
+    //       </TABLE>>
+    //       ]
