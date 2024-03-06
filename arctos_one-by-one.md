@@ -1,5 +1,15 @@
 # Arctos one-by-one operations
 
+## Adding an attribute to a specimen
+
+ * Locate the specimen record in Arctos
+ * Go to the "Record Attibutes" section, click "Edit"
+ * If no "Record Attributes" section appears, from the main specimen record page, locate the blue tab titled "Attributes", click button to view "Edit Individual Attributes" pop-up form
+ * Clear "Record Remark" field
+ * Click "Create New Attribute" dropdown and select appropriate attribute, i.e. "processing history". Choose appropriate "Value" option, i.e. "label transcribed". Complete "Det. Date" and "Determiner" fields with current date and self as agent
+ * Click "Save All"
+ * Go back to the main specimen page and reload. Revisit the "Record Attributes" section and confirm new value was added 
+
 ## Adding Event and Locality to a specimen
 
  * Make sure you understand the basics of the Event + Locality data
@@ -37,6 +47,14 @@
    point, even if you intend to georeference, and then re-enter and
    edit the locality to add long/lat)
  * If you are georeferencing, add: (more here)
+    * Select value in "Primary Spatial Data Type" dropdown, and complete associated data point values
+    * i.e. for point-radius:
+        * Decimal Latitude
+        * Decimal Longitude
+        * Max Error
+        * Max Error Units
+        * Datum 
+        * Georeference Protocol 
  * At bottom of the form, below "On Save..." select "unaccept existing
    specimen_event" from the dropdown menu, click "Save Changes"
  * Go back to the main specimen page and reload. Revisit the "Place
