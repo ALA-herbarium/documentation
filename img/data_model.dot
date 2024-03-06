@@ -491,12 +491,7 @@ digraph flow {
           //
           <TR>
           <TD ALIGN="LEFT"><I>flat</I></TD>
-          <TD ALIGN="LEFT" BALIGN="LEFT" HREF="https://arctos.database.museum/tblbrowse.cfm?tbl=flat">flat.collectors</TD>
-          </TR>
-          //
-          <TR>
-          <TD ALIGN="LEFT"><I>note</I></TD>
-          <TD ALIGN="LEFT" BALIGN="LEFT" HREF="https://arctos.database.museum/tblbrowse.cfm?tbl=attributes">verbatim collectors are attributes<BR/>of attribute_type='verbatim agent'<BR/>and determination_method='collector'</TD>
+          <TD ALIGN="LEFT" BALIGN="LEFT" HREF="https://arctos.database.museum/tblbrowse.cfm?tbl=flat">flat.media (JSON)<BR/>flat.imageurl</TD>
           </TR>
           //
           </TABLE>>
