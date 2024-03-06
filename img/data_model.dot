@@ -36,35 +36,66 @@ digraph flow {
           label=<
           <TABLE  BORDER="0" CELLBORDER="1"  CELLSPACING="0">
           <TR><TD COLSPAN="2"><B>PART</B></TD></TR>
-          <TR><TD ALIGN="LEFT"><I>default</I></TD>
-          <TD ALIGN="LEFT" HREF="https://arctos.database.museum/info/ctDocumentation.cfm?table=ctspecimen_part_name">part type = "whole organism" (ctspecimen_part_name)</TD></TR>
-          <TR><TD ALIGN="LEFT"><I>default</I></TD><TD ALIGN="LEFT" HREF="https://arctos.database.museum/info/ctDocumentation.cfm?table=ctcontainer_type">container type = "collection object" (ctcontainer_type)</TD></TR>
-          <TR><TD ALIGN="LEFT"><I>p. key</I></TD><TD ALIGN="LEFT">parts</TD></TR>
-          <TR><TD ALIGN="LEFT"><I>p. key</I></TD><TD ALIGN="LEFT">partdetail...[1], 2...</TD></TR>
+          //
+          <TR>
+          <TD ALIGN="LEFT"><I>p. key</I></TD>
+          <TD ALIGN="LEFT">specimen_part.collection_object_id</TD>
+          </TR>
+          //
+          <TR>
+          <TD ALIGN="LEFT"><I>f. key</I></TD>
+          <TD ALIGN="LEFT">specimen_part.derived_from_cat_item</TD>
+          </TR>
+          //
+          <TR>
+          <TD ALIGN="LEFT"><I>default</I></TD>
+          <TD ALIGN="LEFT" HREF="https://arctos.database.museum/info/ctDocumentation.cfm?table=ctspecimen_part_name">part type="whole organism" (ctspecimen_part_name)</TD>
+          </TR>
+          //
+          <TR>
+          <TD ALIGN="LEFT"><I>flat</I></TD>
+          <TD BALIGN="LEFT" ALIGN="LEFT">flat.parts<BR/>flat.partdetail (JSON)</TD>
+          </TR>
           </TABLE>>
           //href="https://github.com/ALA-herbarium/documentation/blob/main/data_model.md#collection-object"
           ]
     part -> record [taillabel="n",headlabel="1"]
-    part -> parts [taillabel="1",headlabel="1"]
+    part -> container [dir=both,taillabel="1",headlabel="1",label="(via coll_obj_cont_hist table)",href="https://arctos.database.museum/tblbrowse.cfm?tbl=coll_obj_cont_hist"]
+    container -> container
     //
-    // PARTS
+    // CONTAINER
     //
-    parts [
+    container [
           label=<
           <TABLE  BORDER="0" CELLBORDER="1"  CELLSPACING="0">
           //
           <TR><TD COLSPAN="2"><B>CONTAINER</B><BR/><I>hierarchy</I></TD></TR>
           //
-          <TR><TD ALIGN="LEFT"><I>p. key</I></TD>
-          <TD ALIGN="LEFT">... . ..s</TD></TR>
+          <TR>
+          <TD ALIGN="LEFT"><I>p. key</I></TD>
+          <TD ALIGN="LEFT">container.container_id</TD>
+          </TR>
           //
-          <TR><TD ALIGN="LEFT"><I>in `flat`</I></TD>
-          <TD ALIGN="LEFT">partdetail...container_path</TD></TR>
+          <TR>
+          <TD ALIGN="LEFT"><I>f. key</I></TD>
+          <TD BALIGN="LEFT" ALIGN="LEFT">container.parent_container_id<BR/>container.container_type (ctcontainer_type)</TD>
+          </TR>
           //
-          <TR><TD ALIGN="LEFT"><I>default</I></TD>
-          <TD ALIGN="LEFT" HREF="https://arctos.database.museum/info/ctDocumentation.cfm?table=ct...">container type = herbarium sheet (ctcontainer_type)</TD></TR>
-          <TR><TD ALIGN="LEFT"><I>default</I></TD>
-          <TD ALIGN="LEFT">barcode attached to herbarium sheet</TD></TR>
+          <TR>
+          <TD ALIGN="LEFT"><I>fields</I></TD>
+          <TD ALIGN="LEFT">container.barcode</TD>
+          </TR>
+          //
+          <TR>
+          <TD BALIGN="LEFT" ALIGN="LEFT"><I>default<BR/>values</I></TD>
+          <TD ALIGN="LEFT" BALIGN="LEFT">container_type='collection object'<BR/>default parent container_type='herbarium sheet'</TD>
+          </TR>
+          //
+          <TR>
+          <TD ALIGN="LEFT"><I>flat</I></TD>
+          <TD BALIGN="LEFT" ALIGN="LEFT">flat.partdetail (JSON: 'container_path')<BR/>flat.partdetail (JSON: 'part_barcode')</TD>
+          </TR>
+          //
           </TABLE>>
           ]
     //
@@ -77,14 +108,22 @@ digraph flow {
           <TR><TD COLSPAN="2"><B>EVENT</B></TD></TR>
           //
           <TR><TD ALIGN="LEFT"><I>p. key</I></TD>
-          <TD ALIGN="LEFT">... . ..s</TD></TR>
+          <TD ALIGN="LEFT" HREF="https://arctos.database.museum/tblbrowse.cfm?tbl=collecting_event">collecting_event.collecting_event_id</TD></TR>
           //
-          <TR><TD ALIGN="LEFT"><I>p. key</I></TD>
-          <TD ALIGN="LEFT">...</TD></TR>
+          <TR><TD ALIGN="LEFT"><I>f. key</I></TD>
+          <TD ALIGN="LEFT" HREF="https://arctos.database.museum/tblbrowse.cfm?tbl=collecting_event">collecting_event.locality_id</TD></TR>
+          //
+          <TR><TD ALIGN="LEFT"><I>fields</I></TD>
+          <TD ALIGN="LEFT" HREF="https://arctos.database.museum/tblbrowse.cfm?tbl=collecting_event" BALIGN="LEFT">collecting_event.began_date<BR/>collecting_event.ended_date</TD></TR>
+          //
+          <TR><TD ALIGN="LEFT"><I>flat</I></TD>
+          <TD ALIGN="LEFT" HREF="https://arctos.database.museum/tblbrowse.cfm?tbl=flat" BALIGN="LEFT">flat.collecting_event_id<BR/>flat.began_date<BR/>flat.ended_date</TD></TR>
           //
           </TABLE>>
           ]
-    record -> event [taillabel="n",headlabel="1"]
+    record -> event [taillabel="n",headlabel="1",
+                     label="(via specimen_event\ntable)",
+                     href="https://arctos.database.museum/tblbrowse.cfm?tbl=specimen_event"]
     //
     // LOCALITY
     //
@@ -95,10 +134,16 @@ digraph flow {
           <TR><TD COLSPAN="2"><B>LOCALITY</B></TD></TR>
           //
           <TR><TD ALIGN="LEFT"><I>p. key</I></TD>
-          <TD ALIGN="LEFT">... . ..s</TD></TR>
+          <TD ALIGN="LEFT">locality.locality_id</TD></TR>
           //
-          <TR><TD ALIGN="LEFT"><I>p. key</I></TD>
-          <TD ALIGN="LEFT">...</TD></TR>
+          <TR><TD ALIGN="LEFT"><I>f. key</I></TD>
+          <TD ALIGN="LEFT">locality.geog_auth_rec_id</TD></TR>
+          //
+          <TR><TD ALIGN="LEFT"><I>fields</I></TD>
+          <TD ALIGN="LEFT" BALIGN="LEFT">locality.spec_locality<BR/>locality.dec_long<BR/>locality.dec_lat</TD></TR>
+          //
+          <TR><TD ALIGN="LEFT"><I>flat</I></TD>
+          <TD ALIGN="LEFT" BALIGN="LEFT">flat.locality_id<BR/>flat.spec_locality<BR/>flat.dec_long<BR/>flat.dec_lat<BR/>flat.json_locality (JSON)</TD></TR>
           //
           </TABLE>>
           ]
@@ -113,12 +158,15 @@ digraph flow {
           <TR><TD COLSPAN="2"><B>ACCESSION</B></TD></TR>
           //
           <TR><TD ALIGN="LEFT"><I>p. key</I></TD>
-          <TD ALIGN="LEFT">accn.accn_number (string)</TD></TR>
+          <TD ALIGN="LEFT" HREF="https://arctos.database.museum/tblbrowse.cfm?tbl=accn">accn.accn_number (string)</TD></TR>
           <TR><TD ALIGN="LEFT"><I>flat</I></TD>
-          <TD ALIGN="LEFT">flat.accn (string)</TD></TR>
+          <TD ALIGN="LEFT" HREF="https://arctos.database.museum/tblbrowse.cfm?tbl=flat">flat.accession (string)</TD></TR>
           </TABLE>>
           ]
-    record -> accn [taillabel="n",headlabel="1",label="(via trans table)"]
+    record -> accn [taillabel="n",headlabel="1",
+                    label="(via trans table)",
+                    href="https://arctos.database.museum/tblbrowse.cfm?tbl=trans"
+                    ]
     //
     // COLLECTION
     //
@@ -137,7 +185,7 @@ digraph flow {
           //
           <TR>
           <TD ALIGN="LEFT"><I>flat</I></TD>
-          <TD ALIGN="LEFT" HREF="https://arctos.database.museum/tblbrowse.cfm?tbl=collection">flat.collection_id</TD>
+          <TD ALIGN="LEFT" HREF="https://arctos.database.museum/tblbrowse.cfm?tbl=flat">flat.collection_id</TD>
           </TR>
           //
           <TR><TD ALIGN="LEFT"><I>values</I></TD>
@@ -145,22 +193,241 @@ digraph flow {
           </TABLE>>
           ]
     record -> collection [taillabel="n",headlabel="1"]
+    //
+    // IDENTIFIERS
+    //
+    ids [
+          label=<
+          <TABLE  BORDER="0" CELLBORDER="1"  CELLSPACING="0">
+          //
+          <TR>
+          <TD COLSPAN="2"><B>IDENTIFIERS</B></TD>
+          </TR>
+          //
+          <TR>
+          <TD ALIGN="LEFT"><I>p. key</I></TD>
+          <TD ALIGN="LEFT" HREF="https://arctos.database.museum/tblbrowse.cfm?tbl=coll_obj_other_id_num">coll_obj_other_id_num.coll_obj_other_id_num_id</TD>
+          </TR>
+          //
+          <TR>
+          <TD ALIGN="LEFT"><I>f. key</I></TD>
+          <TD ALIGN="LEFT" HREF="https://arctos.database.museum/tblbrowse.cfm?tbl=coll_obj_other_id_num">coll_obj_other_id_num.collection_obj_id</TD>
+          </TR>
+          //
+          <TR>
+          <TD ALIGN="LEFT"><I>fields</I></TD>
+          <TD ALIGN="LEFT" HREF="https://arctos.database.museum/tblbrowse.cfm?tbl=coll_obj_other_id_num" BALIGN="LEFT">coll_obj_other_id_num.other_id_type (ctcoll_other_id_type)<BR/>coll_obj_other_id_num.display_value</TD>
+          </TR>
+          //
+          <TR>
+          <TD ALIGN="LEFT"><I>flat</I></TD>
+          <TD ALIGN="LEFT" BALIGN="LEFT" HREF="https://arctos.database.museum/tblbrowse.cfm?tbl=flat">flat.othercatalognumbers<BR/>flat.identifiers (JSON)</TD>
+          </TR>
+          //
+          </TABLE>>
+          ]
+    ids -> record [taillabel="n",headlabel="1"]
+    ids -> part [style=invis] //dummy
+    //
+    // DET
+    //
+    det [
+          label=<
+          <TABLE  BORDER="0" CELLBORDER="1"  CELLSPACING="0">
+          //
+          <TR>
+          <TD COLSPAN="2"><B>IDENTIFICATION</B></TD>
+          </TR>
+          //
+          <TR>
+          <TD ALIGN="LEFT"><I>p. key</I></TD>
+          <TD ALIGN="LEFT" HREF="https://arctos.database.museum/tblbrowse.cfm?tbl=identification">identification.identification_id</TD>
+          </TR>
+          //
+          <TR>
+          <TD ALIGN="LEFT"><I>f. key</I></TD>
+          <TD ALIGN="LEFT" BALIGN="LEFT" HREF="https://arctos.database.museum/tblbrowse.cfm?tbl=identification">identification.collection_obj_id<BR/>identification.scientific_name (string)</TD>
+          </TR>
+          //
+          <TR>
+          <TD ALIGN="LEFT"><I>fields</I></TD>
+          <TD ALIGN="LEFT" HREF="https://arctos.database.museum/tblbrowse.cfm?tbl=identification" BALIGN="LEFT">identification.made_date</TD>
+          </TR>
+          //
+          <TR>
+          <TD ALIGN="LEFT"><I>flat</I></TD>
+          <TD ALIGN="LEFT" BALIGN="LEFT" HREF="https://arctos.database.museum/tblbrowse.cfm?tbl=flat">flat.made_date<BR/>flat.previousidentifications (JSON)</TD>
+          </TR>
+          //
+          </TABLE>>
+          ]
+    det -> record [taillabel="n",headlabel="1"]
+    //
+    // AGENT
+    //
+    agent [
+          label=<
+          <TABLE  BORDER="0" CELLBORDER="1"  CELLSPACING="0">
+          //
+          <TR>
+          <TD COLSPAN="2"><B>AGENT</B></TD>
+          </TR>
+          //
+          <TR>
+          <TD ALIGN="LEFT"><I>p. key</I></TD>
+          <TD ALIGN="LEFT" HREF="https://arctos.database.museum/tblbrowse.cfm?tbl=agent">agent.agent_id</TD>
+          </TR>
+          //
+          <TR>
+          <TD ALIGN="LEFT"><I>see also</I></TD>
+          <TD ALIGN="LEFT" BALIGN="LEFT" HREF="https://arctos.database.museum/tblbrowse.cfm?tbl=agent_name">agent_name</TD>
+          </TR>
+          //
+          <TR>
+          <TD ALIGN="LEFT"><I>flat</I></TD>
+          <TD ALIGN="LEFT" BALIGN="LEFT" HREF="https://arctos.database.museum/tblbrowse.cfm?tbl=flat">flat.collectors<BR/>flat.identifiedby</TD>
+          </TR>
+          //
+          </TABLE>>
+          ]
+    det -> agent [taillabel="n",headlabel="n", dir=both,
+                  label="(via identification_agent table)",
+                  href="https://arctos.database.museum/tblbrowse.cfm?tbl=identification_agent"
+                  ]
+    //
+    // TAXON NAME
+    //
+    name [
+          label=<
+          <TABLE  BORDER="0" CELLBORDER="1"  CELLSPACING="0">
+          //
+          <TR>
+          <TD COLSPAN="2"><B>TAXON NAME</B></TD>
+          </TR>
+          //
+          <TR>
+          <TD ALIGN="LEFT"><I>p. key</I></TD>
+          <TD ALIGN="LEFT" BALIGN="LEFT" HREF="https://arctos.database.museum/tblbrowse.cfm?tbl=taxon_name">taxon_name.scientific_name (string)<BR/>taxon_name.taxon_name_id</TD>
+          </TR>
+          //
+          <TR>
+          <TD ALIGN="LEFT"><I>flat</I></TD>
+          <TD ALIGN="LEFT" BALIGN="LEFT" HREF="https://arctos.database.museum/tblbrowse.cfm?tbl=flat">flat.scientific_name</TD>
+          </TR>
+          //
+          </TABLE>>
+          ]
+    det -> name [taillabel="n",headlabel="1"]
+    //
+    // CLASSIFICATION
+    //
+    class [
+          label=<
+          <TABLE  BORDER="0" CELLBORDER="1"  CELLSPACING="0">
+          //
+          <TR>
+          <TD COLSPAN="2"><B>CLASSIFICATION</B></TD>
+          </TR>
+          //
+          <TR>
+          <TD ALIGN="LEFT"><I>p. key</I></TD>
+          <TD ALIGN="LEFT" HREF="https://arctos.database.museum/tblbrowse.cfm?tbl=taxon_term">taxon_term.taxon_term_id</TD>
+          </TR>
+          //
+          <TR>
+          <TD ALIGN="LEFT"><I>key</I></TD>
+          <TD ALIGN="LEFT" HREF="https://arctos.database.museum/tblbrowse.cfm?tbl=taxon_term">taxon_term.classification_id</TD>
+          </TR>
+          //
+          <TR>
+          <TD ALIGN="LEFT"><I>f. key</I></TD>
+          <TD ALIGN="LEFT" BALIGN="LEFT" HREF="https://arctos.database.museum/tblbrowse.cfm?tbl=taxon_term">taxon_term.taxon_name_id<BR/>taxon_term.term_type (cttaxon_term)<BR/>taxon_term.source</TD>
+          </TR>
+          //
+          <TR>
+          <TD ALIGN="LEFT"><I>flat</I></TD>
+          <TD ALIGN="LEFT" BALIGN="LEFT" HREF="https://arctos.database.museum/tblbrowse.cfm?tbl=flat">flat.author_text<BR/>flat.full_taxon_name<BR/>flat.family, flat.phylorder, ...</TD>
+          </TR>
+          //
+          </TABLE>>
+          ]
+    class -> name [taillabel="n",headlabel="1"]
+    //
+    // ATTRIBUTES
+    //
+    attr [
+          label=<
+          <TABLE  BORDER="0" CELLBORDER="1"  CELLSPACING="0">
+          //
+          <TR>
+          <TD COLSPAN="2"><B>ATTRIBUTES</B></TD>
+          </TR>
+          //
+          <TR>
+          <TD ALIGN="LEFT"><I>p. key</I></TD>
+          <TD ALIGN="LEFT" HREF="https://arctos.database.museum/tblbrowse.cfm?tbl=attributes">attributes.attribute_id</TD>
+          </TR>
+          //
+          <TR>
+          <TD ALIGN="LEFT"><I>f. key</I></TD>
+          <TD ALIGN="LEFT" BALIGN="LEFT" HREF="https://arctos.database.museum/tblbrowse.cfm?tbl=attributes">attributes.collection_obj_id<BR/>attributes.attribute_type (ctattribute_type)</TD>
+          </TR>
+          //
+          <TR>
+          <TD ALIGN="LEFT"><I>fields</I></TD>
+          <TD ALIGN="LEFT" BALIGN="LEFT" HREF="https://arctos.database.museum/tblbrowse.cfm?tbl=attributes">attributes.attribute_value</TD>
+          </TR>
+          //
+          <TR>
+          <TD ALIGN="LEFT"><I>flat</I></TD>
+          <TD ALIGN="LEFT" BALIGN="LEFT" HREF="https://arctos.database.museum/tblbrowse.cfm?tbl=flat">flat.attributes<BR/>flat.attributedetail (JSON)</TD>
+          </TR>
+          //
+          </TABLE>>
+          ]
+    attr -> record [taillabel="n",headlabel="1"]
+    attr -> det [style=invis] //dummy
+    //
+    // COLLECTOR
+    //
+    collector [
+          label=<
+          <TABLE  BORDER="0" CELLBORDER="1"  CELLSPACING="0">
+          //
+          <TR>
+          <TD COLSPAN="2"><B>COLLECTOR</B></TD>
+          </TR>
+          //
+          <TR>
+          <TD ALIGN="LEFT"><I>p. key</I></TD>
+          <TD ALIGN="LEFT" HREF="https://arctos.database.museum/tblbrowse.cfm?tbl=collector">collector.collector_id</TD>
+          </TR>
+          //
+          <TR>
+          <TD ALIGN="LEFT"><I>f. key</I></TD>
+          <TD ALIGN="LEFT" BALIGN="LEFT" HREF="https://arctos.database.museum/tblbrowse.cfm?tbl=collector">collector.collection_obj_id<BR/>collector.agent_id</TD>
+          </TR>
+          //
+          <TR>
+          <TD ALIGN="LEFT"><I>flat</I></TD>
+          <TD ALIGN="LEFT" BALIGN="LEFT" HREF="https://arctos.database.museum/tblbrowse.cfm?tbl=flat">flat.collectors</TD>
+          </TR>
+          //
+          <TR>
+          <TD ALIGN="LEFT"><I>note</I></TD>
+          <TD ALIGN="LEFT" BALIGN="LEFT" HREF="https://arctos.database.museum/tblbrowse.cfm?tbl=attributes">verbatim collectors are attributes<BR/>of attribute_type='verbatim agent'<BR/>and determination_method='collector'</TD>
+          </TR>
+          //
+          </TABLE>>
+          ]
+    collector -> record [taillabel="n",headlabel="1"]
+    collector -> agent [taillabel="n",headlabel="n",dir=both]
+    //collector -> class [style=invis] //dummy
+    //
+    notes [label="Arctos DB structure\n2024-03-05\nCam Webb",fontcolor=gray,color=gray]
 }
 
-    // TEMPLATE
-    // node [shape=plaintext,
-    //       label=<
-    //       <TABLE  BORDER="0" CELLBORDER="1"  CELLSPACING="0">
-    //       //
-    //       <TR><TD COLSPAN="2"><B>...</B></TD></TR>
-    //       //
-    //       <TR><TD ALIGN="LEFT"><I>p. key</I></TD>
-    //       <TD ALIGN="LEFT">... . ..s</TD></TR>
-    //       //
-    //       <TR><TD ALIGN="LEFT"><I>p. key</I></TD>
-    //       <TD ALIGN="LEFT">...</TD></TR>
-    //       //
-    //       <TR><TD ALIGN="LEFT"><I>default</I></TD>
-    //       <TD ALIGN="LEFT" HREF="https://arctos.database.museum/info/ctDocumentation.cfm?table=ct...">... (ct...)</TD></TR>
-    //       </TABLE>>
-    //       ]
+// SELECT * from specimen_part, coll_obj_cont_hist, container where
+// derived_from_cat_item = 2651083 and
+// specimen_part.collection_object_id = coll_obj_cont_hist.collection_object_id and coll_obj_cont_hist.container_id = container.container_id
+// [{"part_id": 2651084, "condition": "unchecked", "part_name": "whole organism", "part_count": 1, "disposition": "in collection", "part_remark": null, "part_barcode": "H1131636", "container_path": "[ H1284485 ] Monocots Cabinet 21 (cabinet):[ H1284496 ] Shelf 11 (shelf):[ H1131628 ] Carex lachenalii (folder):[ H1131636 ] Carex lachenalii (herbarium sheet)", "part_attributes": null, "sampled_from_part_id": null}]
