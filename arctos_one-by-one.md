@@ -1,14 +1,53 @@
 # Arctos one-by-one operations
 
-## Adding locality to a specimen
+## Adding Event and Locality to a specimen
 
- * Locate the specimen record in Arctos
+ * Make sure you understand the basics of the Event + Locality data
+   model in Arctos. DO NOT edit an Event or Locality used by other
+   specimens, unless you are confident you know what you are doing.
  * Go to the "Place and Time" section, click "Edit"
- * Note: an auto-generated Specimen/Event exists & is populated for each and every record created within Arctos. It is important to not select "Locality [Edit Locality]" when updating place and time. 
- * Find the "Specimen/Event[scroll to top][Fork-Edit]" heading, click "Fork-Edit"
- * Confirm you are editing the "Fork-edit place-time" form, provide values
- * At bottom of the form, below "On Save..." select "___" from the dropdown menu, click "Save Changes"
- * Go back to the main specimen page and reload. Revisit the "Place and Time" section and confirm new values were added. 
+ * Note: All records must have some Event information, and where
+   records have been bulk loaded without transcription, a ‘dummy’
+   Event was used (e.g., event id: [1525992][2], date: 1800-01-01 to
+   2007-07-02, no verbatim locality recorded). This must be removed
+   from the record you are entering during this update process.
+ * Find the "Specimen/Event [Fork-Edit]" heading, click
+   "Fork-Edit". This will clone the existing event and locality into
+   new events and localities, enabling you to edit these without
+   influencing other events or localities.
+ * Confirm you are editing the "Fork-edit place-time" (popup) form,
+   and provide these values:
+    * Specimen/Event Type (“collection”)
+    * Event Determiner (you) and Date (today)
+    * Verified Status (“accepted”, see [definition][3]), and by who
+      (you) and when (today)
+    * Habitat (if on label; verbatim)
+    * Collecting Source (“wild”)
+    * Verbatim Date
+    * Began Date and Ended Date (in ISO format; if only one day, enter
+      same date for both)
+    * Verbatim locality (transcribed exactly, capitals and all)
+    * Higher Geography (find the smallest scale entry in the higher
+      geography lookup that includes you locality)
+    * Specific locality (derived from the verbatim locality, but
+      1. written from fine scale to large scale, and 2. excluding any
+      information in the Higher Geography)
+ * If you are not intending to georeference (long/lat) the locality,
+   save the edits now (below). (It is a good idea to save at this
+   point, even if you intend to georeference, and then re-enter and
+   edit the locality to add long/lat)
+ * If you are georeferencing, add: (more here)
+ * At bottom of the form, below "On Save..." select "unaccept existing
+   specimen_event" from the dropdown menu, click "Save Changes"
+ * Go back to the main specimen page and reload. Revisit the "Place
+   and Time" section and confirm new values were added. The
+   unaccepted, dummy locality should now be in a dark gray box.
+ * Final step. Click “Edit” again, locate the dummy event (usually
+   with thousands of associated specimens), and click “Delete
+   Specimen/Event”. This will _not_ delete the Event, only the
+   association of the specimen with the event. When you return to the
+   main record page, you should now see only one Place-Time box, the
+   one you have just entered.
 
 ## Adding an identifier to a specimen
 
@@ -73,3 +112,5 @@ attached to this object have been transcribed”. This can then be used
 to find all ‘verified complete’ data records.
 
 [1]: https://arctos.database.museum/info/ctDocumentation.cfm?table=ctprocessing_history
+[2]: https://arctos.database.museum/search.cfm?collecting_event_id=1525992
+[3]: https://arctos.database.museum/info/ctDocumentation.cfm?table=ctverificationstatus
