@@ -8,7 +8,7 @@ documentation in Arctos.
 
 ![Arctos structure](img/data_model.jpg)
 
-(The diagram was made with [GraphViz][2]
+(The diagram was made with [GraphViz][2];
 [source](img/data_model.dot))
 
 [1]: https://github.com/ALA-herbarium/documentation/raw/main/img/data_model.pdf
