@@ -7,8 +7,9 @@ digraph flow {
     rankdir=BT
     //
     // RECORD
-    record [label=<
-          <TABLE  BORDER="0" CELLBORDER="1"  CELLSPACING="0" BGCOLOR="bisque">
+    record [shape=oval,
+            label=<
+          <TABLE  BORDER="0" CELLBORDER="1"  CELLSPACING="0" BGCOLOR="palegreen1">
           //
           <TR>
           <TD COLSPAN="2"><B>CATALOG RECORD</B><BR/><I>aka Collection Object</I></TD>
@@ -34,17 +35,17 @@ digraph flow {
     //
     part [
           label=<
-          <TABLE  BORDER="0" CELLBORDER="1"  CELLSPACING="0">
+          <TABLE  BORDER="0" CELLBORDER="1"  CELLSPACING="0" BGCOLOR="darkolivegreen1">
           <TR><TD COLSPAN="2"><B>PART</B></TD></TR>
           //
           <TR>
           <TD ALIGN="LEFT"><I>p. key</I></TD>
-          <TD ALIGN="LEFT">specimen_part.collection_object_id</TD>
+          <TD ALIGN="LEFT" HREF="https://arctos.database.museum/tblbrowse.cfm?tbl=specimen_part">specimen_part.collection_object_id</TD>
           </TR>
           //
           <TR>
           <TD ALIGN="LEFT"><I>f. key</I></TD>
-          <TD ALIGN="LEFT">specimen_part.derived_from_cat_item</TD>
+          <TD ALIGN="LEFT" HREF="https://arctos.database.museum/tblbrowse.cfm?tbl=specimen_part">specimen_part.derived_from_cat_item</TD>
           </TR>
           //
           <TR>
@@ -54,7 +55,7 @@ digraph flow {
           //
           <TR>
           <TD ALIGN="LEFT"><I>flat</I></TD>
-          <TD BALIGN="LEFT" ALIGN="LEFT">flat.parts<BR/>flat.partdetail (JSON)</TD>
+          <TD BALIGN="LEFT" ALIGN="LEFT" HREF="https://arctos.database.museum/tblbrowse.cfm?tbl=flat">flat.parts<BR/>flat.partdetail (JSON)</TD>
           </TR>
           </TABLE>>
           //href="https://github.com/ALA-herbarium/documentation/blob/main/data_model.md#collection-object"
@@ -67,43 +68,48 @@ digraph flow {
     //
     container [
           label=<
-          <TABLE  BORDER="0" CELLBORDER="1"  CELLSPACING="0">
+          <TABLE  BORDER="0" CELLBORDER="1"  CELLSPACING="0" BGCOLOR="darkolivegreen1">
           //
           <TR><TD COLSPAN="2"><B>CONTAINER</B><BR/><I>hierarchy</I></TD></TR>
           //
           <TR>
           <TD ALIGN="LEFT"><I>p. key</I></TD>
-          <TD ALIGN="LEFT">container.container_id</TD>
+          <TD ALIGN="LEFT" HREF="https://arctos.database.museum/tblbrowse.cfm?tbl=container">container.container_id</TD>
           </TR>
           //
           <TR>
           <TD ALIGN="LEFT"><I>f. key</I></TD>
-          <TD BALIGN="LEFT" ALIGN="LEFT">container.parent_container_id<BR/>container.container_type (ctcontainer_type)</TD>
+          <TD BALIGN="LEFT" ALIGN="LEFT" HREF="https://arctos.database.museum/tblbrowse.cfm?tbl=container">container.parent_container_id<BR/>container.container_type (ctcontainer_type)</TD>
           </TR>
           //
           <TR>
           <TD ALIGN="LEFT"><I>fields</I></TD>
-          <TD ALIGN="LEFT">container.barcode</TD>
+          <TD ALIGN="LEFT" HREF="https://arctos.database.museum/tblbrowse.cfm?tbl=container">container.barcode</TD>
           </TR>
           //
           <TR>
           <TD BALIGN="LEFT" ALIGN="LEFT"><I>default<BR/>values</I></TD>
-          <TD ALIGN="LEFT" BALIGN="LEFT">container_type='collection object'<BR/>default parent container_type='herbarium sheet'</TD>
+          <TD ALIGN="LEFT" BALIGN="LEFT" HREF="https://arctos.database.museum/tblbrowse.cfm?tbl=container">container_type='collection object'<BR/>default parent container_type='herbarium sheet'</TD>
           </TR>
           //
           <TR>
           <TD ALIGN="LEFT"><I>flat</I></TD>
-          <TD BALIGN="LEFT" ALIGN="LEFT">flat.partdetail (JSON: 'container_path')<BR/>flat.partdetail (JSON: 'part_barcode')</TD>
+          <TD BALIGN="LEFT" ALIGN="LEFT" HREF="https://arctos.database.museum/tblbrowse.cfm?tbl=flat">flat.partdetail (JSON: 'container_path')<BR/>flat.partdetail (JSON: 'part_barcode')</TD>
           </TR>
           //
           </TABLE>>
           ]
+    subgraph clusterTimePlace {
+        label="PLACE AND TIME"
+        fontname="Helvetica-Bold"
+        rank=same
+
     //
     // EVENT
     //
     event [
           label=<
-          <TABLE  BORDER="0" CELLBORDER="1"  CELLSPACING="0">
+          <TABLE  BORDER="0" CELLBORDER="1"  CELLSPACING="0" BGCOLOR="lightgoldenrod">
           //
           <TR><TD COLSPAN="2"><B>EVENT</B></TD></TR>
           //
@@ -121,39 +127,40 @@ digraph flow {
           //
           </TABLE>>
           ]
-    record -> event [taillabel="n",headlabel="1",
-                     label="(via specimen_event\ntable)",
-                     href="https://arctos.database.museum/tblbrowse.cfm?tbl=specimen_event"]
     //
     // LOCALITY
     //
     locality [
           label=<
-          <TABLE  BORDER="0" CELLBORDER="1"  CELLSPACING="0">
+          <TABLE  BORDER="0" CELLBORDER="1"  CELLSPACING="0" BGCOLOR="lightgoldenrod">
           //
           <TR><TD COLSPAN="2"><B>LOCALITY</B></TD></TR>
           //
           <TR><TD ALIGN="LEFT"><I>p. key</I></TD>
-          <TD ALIGN="LEFT">locality.locality_id</TD></TR>
+          <TD ALIGN="LEFT" HREF="https://arctos.database.museum/tblbrowse.cfm?tbl=locality">locality.locality_id</TD></TR>
           //
           <TR><TD ALIGN="LEFT"><I>f. key</I></TD>
-          <TD ALIGN="LEFT">locality.geog_auth_rec_id</TD></TR>
+          <TD ALIGN="LEFT" HREF="https://arctos.database.museum/tblbrowse.cfm?tbl=locality">locality.geog_auth_rec_id</TD></TR>
           //
           <TR><TD ALIGN="LEFT"><I>fields</I></TD>
-          <TD ALIGN="LEFT" BALIGN="LEFT">locality.spec_locality<BR/>locality.dec_long<BR/>locality.dec_lat</TD></TR>
+          <TD ALIGN="LEFT" BALIGN="LEFT" HREF="https://arctos.database.museum/tblbrowse.cfm?tbl=locality">locality.spec_locality<BR/>locality.dec_long<BR/>locality.dec_lat</TD></TR>
           //
           <TR><TD ALIGN="LEFT"><I>flat</I></TD>
-          <TD ALIGN="LEFT" BALIGN="LEFT">flat.locality_id<BR/>flat.spec_locality<BR/>flat.dec_long<BR/>flat.dec_lat<BR/>flat.json_locality (JSON)</TD></TR>
+          <TD ALIGN="LEFT" BALIGN="LEFT" HREF="https://arctos.database.museum/tblbrowse.cfm?tbl=flat">flat.locality_id<BR/>flat.spec_locality<BR/>flat.dec_long<BR/>flat.dec_lat<BR/>flat.json_locality (JSON)</TD></TR>
           //
           </TABLE>>
           ]
     event -> locality [taillabel="n",headlabel="1"]
+    }
+    record -> event [taillabel="n",headlabel="1",
+                     label="(via specimen_event\ntable)",
+                     href="https://arctos.database.museum/tblbrowse.cfm?tbl=specimen_event"]
     //
     // ACCESSION
     //
     accn [shape=plaintext,
           label=<
-          <TABLE  BORDER="0" CELLBORDER="1"  CELLSPACING="0">
+          <TABLE  BORDER="0" CELLBORDER="1"  CELLSPACING="0"  BGCOLOR="gray93">
           //
           <TR><TD COLSPAN="2"><B>ACCESSION</B></TD></TR>
           //
@@ -172,7 +179,7 @@ digraph flow {
     //
     collection [shape=plaintext,
           label=<
-          <TABLE  BORDER="0" CELLBORDER="1"  CELLSPACING="0">
+          <TABLE  BORDER="0" CELLBORDER="1"  CELLSPACING="0" BGCOLOR="gray93">
           //
           <TR>
           <TD COLSPAN="2"><B>COLLECTION</B></TD>
@@ -198,7 +205,7 @@ digraph flow {
     //
     ids [
           label=<
-          <TABLE  BORDER="0" CELLBORDER="1"  CELLSPACING="0">
+          <TABLE  BORDER="0" CELLBORDER="1"  CELLSPACING="0" BGCOLOR="gray93">
           //
           <TR>
           <TD COLSPAN="2"><B>IDENTIFIERS</B></TD>
@@ -216,7 +223,7 @@ digraph flow {
           //
           <TR>
           <TD ALIGN="LEFT"><I>fields</I></TD>
-          <TD ALIGN="LEFT" HREF="https://arctos.database.museum/tblbrowse.cfm?tbl=coll_obj_other_id_num" BALIGN="LEFT">coll_obj_other_id_num.other_id_type (ctcoll_other_id_type)<BR/>coll_obj_other_id_num.display_value</TD>
+          <TD ALIGN="LEFT" HREF="https://arctos.database.museum/tblbrowse.cfm?tbl=coll_obj_other_id_num" BALIGN="LEFT">coll_obj_other_id_num.other_id_type (ctcoll_other_id_type)<BR/>coll_obj_other_id_num.display_value<BR/>coll_obj_other_id_num.id_references (ctid_references)</TD>
           </TR>
           //
           <TR>
@@ -233,7 +240,7 @@ digraph flow {
     //
     det [
           label=<
-          <TABLE  BORDER="0" CELLBORDER="1"  CELLSPACING="0">
+          <TABLE  BORDER="0" CELLBORDER="1"  CELLSPACING="0" BGCOLOR="lightskyblue2">
           //
           <TR>
           <TD COLSPAN="2"><B>IDENTIFICATION</B></TD>
@@ -267,7 +274,7 @@ digraph flow {
     //
     agent [
           label=<
-          <TABLE  BORDER="0" CELLBORDER="1"  CELLSPACING="0">
+          <TABLE  BORDER="0" CELLBORDER="1"  CELLSPACING="0" BGCOLOR="peachpuff">
           //
           <TR>
           <TD COLSPAN="2"><B>AGENT</B></TD>
@@ -299,7 +306,7 @@ digraph flow {
     //
     name [
           label=<
-          <TABLE  BORDER="0" CELLBORDER="1"  CELLSPACING="0">
+          <TABLE  BORDER="0" CELLBORDER="1"  CELLSPACING="0" BGCOLOR="lightskyblue2">
           //
           <TR>
           <TD COLSPAN="2"><B>TAXON NAME</B></TD>
@@ -323,7 +330,7 @@ digraph flow {
     //
     class [
           label=<
-          <TABLE  BORDER="0" CELLBORDER="1"  CELLSPACING="0">
+          <TABLE  BORDER="0" CELLBORDER="1"  CELLSPACING="0" BGCOLOR="lightskyblue2">
           //
           <TR>
           <TD COLSPAN="2"><B>CLASSIFICATION</B></TD>
@@ -357,7 +364,7 @@ digraph flow {
     //
     attr [
           label=<
-          <TABLE  BORDER="0" CELLBORDER="1"  CELLSPACING="0">
+          <TABLE  BORDER="0" CELLBORDER="1"  CELLSPACING="0" BGCOLOR="gray93">
           //
           <TR>
           <TD COLSPAN="2"><B>ATTRIBUTES</B></TD>
@@ -392,7 +399,7 @@ digraph flow {
     //
     collector [
           label=<
-          <TABLE  BORDER="0" CELLBORDER="1"  CELLSPACING="0">
+          <TABLE  BORDER="0" CELLBORDER="1"  CELLSPACING="0" BGCOLOR="peachpuff">
           //
           <TR>
           <TD COLSPAN="2"><B>COLLECTOR</B></TD>
@@ -424,10 +431,45 @@ digraph flow {
     collector -> agent [taillabel="n",headlabel="n",dir=both]
     //collector -> class [style=invis] //dummy
     //
-    notes [label="Arctos DB structure\n2024-03-05\nCam Webb",fontcolor=gray,color=gray]
+    // MEDIA
+    //
+    media [
+          label=<
+          <TABLE  BORDER="0" CELLBORDER="1"  CELLSPACING="0" BGCOLOR="mediumorchid1">
+          //
+          <TR>
+          <TD COLSPAN="2"><B>MEDIA</B></TD>
+          </TR>
+          //
+          <TR>
+          <TD ALIGN="LEFT"><I>p. key</I></TD>
+          <TD ALIGN="LEFT" HREF="https://arctos.database.museum/tblbrowse.cfm?tbl=media">media.media_id</TD>
+          </TR>
+          //
+          <TR>
+          <TD ALIGN="LEFT"><I>fields</I></TD>
+          <TD ALIGN="LEFT" BALIGN="LEFT" HREF="https://arctos.database.museum/tblbrowse.cfm?tbl=media">media.media_uri<BR/>media.mime_type</TD>
+          </TR>
+          //
+          <TR>
+          <TD ALIGN="LEFT"><I>flat</I></TD>
+          <TD ALIGN="LEFT" BALIGN="LEFT" HREF="https://arctos.database.museum/tblbrowse.cfm?tbl=flat">flat.collectors</TD>
+          </TR>
+          //
+          <TR>
+          <TD ALIGN="LEFT"><I>note</I></TD>
+          <TD ALIGN="LEFT" BALIGN="LEFT" HREF="https://arctos.database.museum/tblbrowse.cfm?tbl=attributes">verbatim collectors are attributes<BR/>of attribute_type='verbatim agent'<BR/>and determination_method='collector'</TD>
+          </TR>
+          //
+          </TABLE>>
+          ]
+    media -> record [taillabel="n",headlabel="1",
+                     label="(via media_relations table)",
+                     href="https://arctos.database.museum/tblbrowse.cfm?tbl=media_relations"
+                     ]
+    //media -> part [style=invis]
+    media -> collector [style=invis]
+    //
+    notes [label="Arctos DB structure\n2024-03-05\nCam Webb\nversion 1.0",fontcolor=gray,color=gray]
 }
 
-// SELECT * from specimen_part, coll_obj_cont_hist, container where
-// derived_from_cat_item = 2651083 and
-// specimen_part.collection_object_id = coll_obj_cont_hist.collection_object_id and coll_obj_cont_hist.container_id = container.container_id
-// [{"part_id": 2651084, "condition": "unchecked", "part_name": "whole organism", "part_count": 1, "disposition": "in collection", "part_remark": null, "part_barcode": "H1131636", "container_path": "[ H1284485 ] Monocots Cabinet 21 (cabinet):[ H1284496 ] Shelf 11 (shelf):[ H1131628 ] Carex lachenalii (folder):[ H1131636 ] Carex lachenalii (herbarium sheet)", "part_attributes": null, "sampled_from_part_id": null}]
