@@ -10,6 +10,9 @@ documentation in Arctos.
 
 Key:
 
+ * _outline boxes_: represent the panels within the Arctos catalog
+   record page
+ * _colored tables_: primary tables in the Arctos DB
  * _p. key_: primary key in the main, original data table
  * _f. key(s)_: foreign keys in the original data table
  * _fields_: other primary fields in the original data table
