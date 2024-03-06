@@ -13,6 +13,7 @@ _General documentation for ALA operations_
 
 ## Arctos
 
+ * [Arctos data model](data_model.md)
  * [Modifying records, one-by-one](arctos_one-by-one.md)
  * [Image management in Arctos](images.md): creating and deleting
    image links, flagging poor images
