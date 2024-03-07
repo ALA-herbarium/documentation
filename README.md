@@ -27,6 +27,12 @@ _General documentation for ALA operations_
 
 ## Other
 
+ * [The ALA accession number (ALAAC)](alaac.md)
  * [Taxonworks](taxonworks.md)
+ 
+## Skills
+
+ * [Background reading](background.md) and skills development for
+   advanced Arctos use
  * [Learning SQL](learning_sql.md)
 

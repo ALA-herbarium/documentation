@@ -46,15 +46,21 @@
    save the edits now (below). (It is a good idea to save at this
    point, even if you intend to georeference, and then re-enter and
    edit the locality to add long/lat)
- * If you are georeferencing, add: (more here)
-    * Select value in "Primary Spatial Data Type" dropdown, and complete associated data point values
-    * i.e. for point-radius:
-        * Decimal Latitude
-        * Decimal Longitude
-        * Max Error
-        * Max Error Units
-        * Datum 
-        * Georeference Protocol 
+ * If you are georeferencing,
+    * Select Point-Radius value in "Primary Spatial Data Type" dropdown
+    * Decimal Latitude (choose appropriate numbers of decimal
+      precision: at latitude 67° degrees North, degrees of _longitude_
+      (E-W): 0.1° = 5 km, 0.01° = 481 m; 0.001° = 48 m; 0.0001° = 5 m;
+      at _all_ latitudes, degrees: of _latitude_ (N-S): 0.1° = 11 km,
+      0.01° = 1111 m; 0.001° = 111 m; 0.0001° = 11 m)
+    * Decimal Longitude (ditto)
+    * Max Error (choose an appropriate value based on: precision of
+      coordinates, and specificity of description; e.g., “Fairbanks,
+      Alaska” might have an error of 10 km).
+    * Max Error Units (meters or kilometers)
+    * Datum (“WGS 84”)
+    * Georeference Protocol (use “not recorded” for the moment, see GH
+      [issue][4])
  * At bottom of the form, below "On Save..." select "unaccept existing
    specimen_event" from the dropdown menu, click "Save Changes"
  * Go back to the main specimen page and reload. Revisit the "Place
@@ -132,3 +138,4 @@ to find all ‘verified complete’ data records.
 [1]: https://arctos.database.museum/info/ctDocumentation.cfm?table=ctprocessing_history
 [2]: https://arctos.database.museum/search.cfm?collecting_event_id=1525992
 [3]: https://arctos.database.museum/info/ctDocumentation.cfm?table=ctverificationstatus
+[4]: https://github.com/ArctosDB/arctos/issues/7499
