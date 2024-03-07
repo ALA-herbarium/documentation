@@ -40,7 +40,7 @@
     * Higher Geography (find the smallest scale entry in the higher
       geography lookup that includes you locality)
     * Specific locality (derived from the verbatim locality, but
-      1. written from fine scale to large scale, and 2. excluding any
+      written from fine scale to large scale, and excluding any
       information in the Higher Geography)
  * If you are not intending to georeference (long/lat) the locality,
    save the edits now (below). (It is a good idea to save at this
@@ -49,9 +49,9 @@
  * If you are georeferencing,
     * Select Point-Radius value in "Primary Spatial Data Type" dropdown
     * Decimal Latitude (choose appropriate numbers of decimal
-      precision: at latitude 67° degrees North, degrees of _longitude_
-      (E-W): 0.1° = 5 km, 0.01° = 481 m; 0.001° = 48 m; 0.0001° = 5 m;
-      at _all_ latitudes, degrees: of _latitude_ (N-S): 0.1° = 11 km,
+      precision: at latitude 67° North, degrees of _longitude_ (E-W):
+      0.1° = 5 km, 0.01° = 481 m; 0.001° = 48 m; 0.0001° = 5 m; at
+      _all_ latitudes, degrees: of _latitude_ (N-S): 0.1° = 11 km,
       0.01° = 1111 m; 0.001° = 111 m; 0.0001° = 11 m)
     * Decimal Longitude (ditto)
     * Max Error (choose an appropriate value based on: precision of
