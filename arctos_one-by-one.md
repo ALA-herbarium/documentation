@@ -90,6 +90,16 @@
  * Click "Create Agent"
  * Agent is now searchable and can be added as identifier and collector 
 
+## Adding a relationship between existing agents in Arctos
+
+ * Navigate to search agents, enter one of the agents to associate
+ * Click on agent's name, follow to new tab opened - page titled "Summary for [agent's name] (person)"
+ * Click "edit"
+ * Click "select to create" dropdown under "Create Attribute" and find relationship type under relationship section of menu, i.e. relationship > associate of
+ * Enter attribute values, including current as date determined and self as determiner.
+ * Click "save"
+ * Navigate back to agent summary and ensure new attribute values appear. Agents are now linked and can be searched by "Related Agent" field
+
 ## Adding a collector to a specimen
 
  * Locate the specimen record in Arctos
