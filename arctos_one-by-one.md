@@ -81,14 +81,16 @@
  * Click "Insert" and "Save Changes"
  * Go back to the main specimen page and reload. Revisit the "Identifiers and Relationships" section and confirm new value was added. 
 
-
 ## Adding an agent to Arctos
 
- * Search all variations of name in Arctos
+ * Search all variations of name in Arctos 
  * If none exists, from "Agent Search" page, click "Create Agent"
+ * Note: bolded, enclosed in red, message; Read this! Avoid duplicates and ensure data validity by searching the web and recommended sites.
+      * https://kiki.huh.harvard.edu/databases/botanist_index.html is an excellent resource for learning more about agents; information from this database can be used to verify existing information and provide more detail to agents in Arctos.
  * Create agent type "person" and enter preferred name value
  * Click "Create Agent"
- * Agent is now searchable and can be added as identifier and collector 
+ * Agent is now searchable and can be added as identifier and collector and if applicable can be edited with more detailed information from outside sources, i.e. HUH
+ * Editing an agent in Arctos:
 
 ## Adding a relationship between existing agents in Arctos
 
