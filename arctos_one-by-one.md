@@ -91,6 +91,9 @@
  * Click "Create Agent"
  * Agent is now searchable and can be added as identifier and collector and if applicable can be edited with more detailed information from outside sources, i.e. HUH
  * Editing an agent in Arctos:
+      * Search agent to edit, select name
+      * To the right of "Summary for [agent's name] (person)" select "edit"
+      * Add appropriate attributes and values, click "save" 
 
 ## Adding a relationship between existing agents in Arctos
 
