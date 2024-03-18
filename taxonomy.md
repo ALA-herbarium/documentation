@@ -6,12 +6,63 @@ concept. The vast majority of identifications in Arctos use names.
 ## Names
 
 Names (`scientific_name`) are just strings, of the form `Genus` or
-`Genus species` or `Genus species inf. infra`. They have no authors
-associated with them.  Creating them is easy, via the GUI or via a
-bulk loader.
+`Genus species` or `Genus species inf. infra`. In other databases
+these are known as ‘canonical names’. They have no authors associated
+with them.  Creating them is easy, via the GUI or via a bulk loader.
 
 Note that the `taxon_name` [table][1] uses `scientific_name` as its
 primary key.
+
+### Taxonomy search options in Arctos
+
+Taxonomic search can be performed:
+
+ 1. via the Record Search GUI (at <https://arctos.database.museum/search.cfm>),
+ 2. via ‘Find Records in Arctos with...’ buttons on the Name page
+    (<https://arctos.database.museum/name/>),
+ 3. via writing a Query string for 
+    <https://arctos.database.museum/search.cfm?>, or
+ 4. (via the SQL interface)
+ 
+The behavior of options 1-3 (above) is documented below, ordered from
+more specific searching to less specific:
+
+ * Query `taxon_name_id=ID&identification_order=1` (via Name page,
+   ‘Used in Identifications’, with added `&identification_order=1`):
+    * **Returns** all specimens with the current (ID order = 1)
+        identification for a name
+ * Query `taxon_name_id=ID&identification_order=>0` (via Name page,
+   ‘Used in Accepted Identifications’):
+    * **Returns** all specimens with accepted identification (ID order
+        = 1, 2, 3...) for a name
+ * Query `taxon_name_id=ID` (via Name page, ‘Used in
+   Identifications’):
+    * **Returns** all specimens with identifications for a name,
+        irrespective of the ID order (including ID order=0, depreciated names)
+ * Query `scientific_name=NAME` (via Name page, ‘Used in
+   Identification, less Strict’, or via the Catalog Record Search page):
+    * **Returns** all specimens with identifications for a name,
+        irrespective of the ID order, allowing for partial matches to
+        the name
+ * Query `taxon_name=NAME` (via Name page, ‘Used or Related to Used’,
+   or via the Catalog Record Search page):
+    * **Returns** i) all specimens with identifications to a name (any
+      ID order), ii) all specimens identified to a synonym of an
+      accepted name, or iii) all specimens identified to the accepted
+      name of a synonym.  Synonymy is determined in **two** ways:
+       * via the name’s Related Names (`taxon_relations` table) and
+       * via the taxonomic hierarchy of a name (`taxon_terms` table):
+         if a classification for a name in the accepted Source
+         contains a name that is _different_ from the original name,
+         the different name is considered a related name. For example,
+         World Flora Online provides the classification of the
+         _accepted_ name for any synonyms, permitting searching for
+         both accepted name and synonyms.
+
+### Entering names into Arctos
+
+The name associated with an identification should be the _name on the
+label_, not the synonym of the name (see [this issue][5]).
 
 ## Classifications
 
@@ -45,7 +96,7 @@ for ALA have a single classification per source per name (on
 
 [in progress]
 
-The problem with exixting classifications:
+The problem with existing classifications:
 
  * Arctos Plants is an old and very uneven classification (add stats
    on names with family, etc).
@@ -59,7 +110,7 @@ The problem with exixting classifications:
    
 A problem with the current taxonomy model in Arctos:
 
- * Arctos only uses canonocal names as name objects, so there is no
+ * Arctos only uses canonical names as name objects, so there is no
    way to distinguish the same name with different authors.
  * Arctos also specifies synonymy among canonical names, which again
    precludes differentiating among synonymies that depend on
@@ -82,7 +133,7 @@ How specimens are searched for:
 
 The code is at https://github.com/ArctosDB/arctos-dev/blob/main/3.2.9/search.cfm
 
-From the taxonomy searcg page, these are the inputs:
+From the taxonomy search page, these are the inputs:
 
  * Exact match to name, identification order = 1: `search.cfm?taxon_name_id=`
  * Exact match to name, identification order = 1 or more:
@@ -109,4 +160,5 @@ Update: https://handbook.arctosdb.org/how_to/How_to_Search_for_Specimens_with_Id
 [2]: https://github.com/ALA-herbarium/arctos-tools/blob/main/sql/sql/48.sql
 [3]: https://github.com/ALA-herbarium/issues/issues/106
 [4]: https://github.com/ALA-herbarium/arctos-tools/blob/main/sql/sql/49.sql
+[5]: https://github.com/ALA-herbarium/issues/issues/111
 

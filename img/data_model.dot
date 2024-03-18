@@ -3,6 +3,8 @@
 // 2024-03-06
 // Version 1.1
 
+// TODO 2024-03-08 Add taxon relations
+
 digraph flow {
   node [fontname="Helvetica",shape=plaintext]
   edge [fontname="Helvetica"]
@@ -374,7 +376,7 @@ digraph flow {
     //
     <TR>
     <TD ALIGN="LEFT"><I>see also</I></TD>
-    <TD ALIGN="LEFT" BALIGN="LEFT" HREF="https://arctos.database.museum/tblbrowse.cfm?tbl=agent_name">agent_name</TD>
+    <TD ALIGN="LEFT" BALIGN="LEFT" HREF="https://arctos.database.museum/tblbrowse.cfm?tbl=agent_attribute">agent_attribute</TD>
     </TR>
     //
     <TR>
