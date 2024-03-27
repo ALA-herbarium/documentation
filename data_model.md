@@ -78,12 +78,20 @@ monospaced type)
     * Physically, all _elements_ of a collection exist somewhere,
       usually attached to a single _herbarium sheet_.
     * Arctos models this by allowing each **Part** to be contained in
-      a **Container**. Usually a **whole organism** occurs in/on a
-      **Container** of type **herbarium sheet**.
+      a **Container**. Usually a **whole organism** occurs in/on
+      a **Container** of type **herbarium sheet**.
     * Each **Container** may have a `barcode`, but **Parts** do no
       themselves have barcodes.
     * Different **Parts** of one **Catalog record** may exist in
       different **Containers**
+    * NOTE: In rare cases, a single **Container** may contain **Parts** 
+      from different **Records**. For example, rarely two
+      _individuals_ of different species were attached to the same _herbarium
+      sheet_ (and so cannot be called a single _specimen_). They should be 
+      assigned to different **Records** with different `GUID` and `ALAAC`,
+      even though the collector and event info is the same. Each of 
+      the **Records** will have **Parts** that share the same **herbarium 
+      sheet** **Container**, with a single `barcode`
     * **Containers** themselves can be housed hierarchically in 
       other **Containers** which each have barcodes and descriptions.
       This permits _herbarium sheets_ to be found:
@@ -101,10 +109,15 @@ monospaced type)
 
 Using the above model, the following should be true:
 
- * Each `GUID` should have a single `ALAAC` (note: unique ALAACs are
-   not enforced by Arctos)
- * Each `GUID` and `ALAAC` may have one or more `barcodes`
+ 1. Each `GUID` should have a single `ALAAC` (note: unique ALAACs are
+    not enforced by Arctos)
+ 2. Rarely, each `GUID` and `ALAAC` may have one or more `barcodes`
+ 3. Rarely, a single `barcode` may be associated with more than one
+   `GUID` and `ALAAC`
 
+Anny cases of multiple ALAAC for a single GUID should be investigated
+and duplicate records deleted. Because cases (2) and (3) above are
+rare, they should be checked manually.
 
 [1]: https://github.com/ALA-herbarium/documentation/raw/main/img/data_model.pdf
 [2]: https://www.graphviz.org/
