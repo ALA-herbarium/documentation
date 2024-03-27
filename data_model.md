@@ -105,6 +105,8 @@ monospaced type)
       of a **Record**, with type **flower**, and contained in a
       **Container** of type **vial**.
 
+![ALA mapping to Arctos structure](img/ala_model.jpg)
+
 ### Identifiers
 
 Using the above model, the following should be true:
