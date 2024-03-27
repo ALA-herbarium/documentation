@@ -1,0 +1,83 @@
+digraph randoms {
+    node [fontname="Helvetica",shape=box]
+    edge [fontname="Helvetica", len=1.5]
+    overlap=false
+    //rankdir=BT
+    newrank=true
+    ranksep=0.5
+    //
+    START [label="START:\nLoose specimen in herbarium\nnot part of special accession"]
+    START -> labelQ
+    //
+    subgraph qlabel {
+        rank=same
+        labelQ [label="1. Is there a label"]
+        labelA [label="Transcribe full label\ninto spreadsheet"]
+        labelQ -> labelA [label="No"]
+        labelA -> batch [style=dashed]
+        batch [style=dashed,label="Batch load"]
+        batch -> mklabel [style=dashed]
+        mklabel [style=dashed,label="Print label"]
+    }
+    //
+    mklabel -> alaacQ [style=dashed]
+    labelQ -> alaacQ [label="Yes"]
+    //
+    subgraph qalaac {
+        rank=same
+        alaacQ [label="1. Is there\nan ALAAC?"]
+        alaacA [label="Give ALAAC\nfrom General\nAccession series"]
+        alaacQ -> alaacA [label="No"]
+    }
+    //
+    alaacQ -> bcQ [label="Yes"]
+    alaacA -> bcQ
+    //
+    subgraph qbc {
+        rank=same
+        bcQ [label="2. Is there\na barcode?"]
+        bcA [label="Stick on barcode"]
+        bcQ -> bcA [label="No"]
+    }
+    //
+    bcQ -> dataQ [label="Yes"]
+    bcA -> dataQ
+    //
+    subgraph qdata {
+        rank=same
+        dataQ [label="3. Is there\nan Arctos record?\n(Search barcode or ALAAC)"]
+        dataA [label="Enter ALAAC, barcode\nin spreadsheet.\nTranscribe label."]
+        dataQ -> dataA [label="No"]
+        dataA -> batch2 [style=dashed]
+        batch2 [style=dashed,label="Batch load"]
+    }
+    //
+    dataQ -> fullQ [label="Yes"]
+    dataA -> photoA
+    //
+    subgraph qfull {
+        rank=same
+        fullQ [label="4. Are identifiers, dets,\ncollectors, locality\ncomplete in Arctos?"]
+        fullA [label="Enter GUID\nin spreadsheet.\nTranscribe missing data only."]
+        fullQ -> fullA [label="No"]
+    }
+    //
+    fullA -> photoQ
+    fullQ -> photoQ [label="Yes"]
+    //
+    subgraph qphoto {
+        rank=same
+        photoQ [label="4. Are there images\nin Arctos?"]
+        photoA [label="Place in pile to be imaged."]
+        photoQ -> photoA [label="No"]
+        photoA -> Imaging [style=dashed]
+        Imaging [style=dashed]
+    }
+    //
+    photoQ -> file [label="Yes"]
+    Imaging -> file [style=dashed]
+    //
+    file [label="Review by Carolyn.\nFile in Range."]
+
+}
+        

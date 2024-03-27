@@ -1,0 +1,56 @@
+digraph flow {
+  node [fontname="Helvetica"]
+  edge [fontname="Helvetica"]
+  overlap=false
+  newrank=true
+  ranksep=1.5
+  nodesep=0.5
+  rankdir=BT
+  //
+  subgraph clusterID {
+      rank=same
+      label="Arctos Identifiers"
+      // fontname="Helvetica"
+      //
+      alaac [shape=parallelogram,style=filled,fillcolor=lightblue]
+      guid [shape=parallelogram,style=filled,fillcolor=lightblue]
+      barcode1 [shape=parallelogram,style=filled,fillcolor=lightblue]
+      barcode2 [shape=parallelogram,style=filled,fillcolor=lightblue]
+  }
+  //
+  specimen -> guid  [dir=both,taillabel="1",headlabel="1",style=dashed]
+  specimen -> alaac [dir=both,taillabel="1",headlabel="1",style=dashed]
+  //
+  specimen [shape=box,
+            label="Specimen\n(Arctos: Catalog Record)",
+            style=filled,
+            fillcolor=palegreen]
+  //
+  subgraph clusterParts {
+      rank=same
+      label="Parts"
+      // fontname="Helvetica"
+      //
+      part1 [label="Plant\n(Arctos: Part\nof type 'whole organism')",style=filled,fillcolor=lightpink]
+      part2 [label="Flower\n(Arctos: Part\nof type 'flower')",style=filled,fillcolor=lightpink]
+      part3 [label="Label\n(Arctos: Part\nof type 'media')",style=filled,fillcolor=lightpink]
+  }
+  part1 -> specimen
+  part2 -> specimen
+  part3 -> specimen
+  //
+  subgraph clusterContainers {
+      rank=same
+      label="Containers"
+      // fontname="Helvetica"
+      //
+      cont1 [label="Herbarium sheet\n(Arctos: Container\nof type 'herbarium sheet')",shape=octagon,style=filled,fillcolor=lightyellow]
+      cont2 [label="Vial\n(Arctos: Container\nof type 'vial')",shape=octagon,style=filled,fillcolor=lightyellow]
+  }
+  part1 -> cont1
+  part3 -> cont1
+  part2 -> cont2
+  //
+  cont1 -> barcode1 [dir=both,taillabel="1",headlabel="1",style=dashed]
+  cont2 -> barcode2 [dir=both,taillabel="1",headlabel="1",style=dashed]
+}
