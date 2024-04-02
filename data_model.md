@@ -91,7 +91,7 @@ monospaced type)
       assigned to different **Records** with different `GUID` and `ALAAC`,
       even though the collector and event info is the same. Each of 
       the **Records** will have **Parts** that share the same **herbarium 
-      sheet** **Container**, with a single `barcode`
+      sheet** **Container** (and `barcode`) with the other **Record**.
     * **Containers** themselves can be housed hierarchically in 
       other **Containers** which each have barcodes and descriptions.
       This permits _herbarium sheets_ to be found:

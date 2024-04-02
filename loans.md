@@ -27,5 +27,27 @@ How to model/enter data for loan-like situations (note, in Arctos
  * Review to make sure the project and transaction are now linked to
    the correct (used up, leaf) parts.
 
+To do this in bulk, you will need to use two bulkloaders:
+
+ * [Parts][3]; CSV format, with _two_ rows per GUID, one for the
+   annotation label, one for the leaf. For example:
+    * `guid`: (label) UAM:Herb:254774, (leaf) UAM:Herb:254774
+    * `container_barcode`: (label) H1300798, (leaf) EMPTY
+    * `part_name`: (label) media, (leaf) leaf
+    * `condition`: (label) good , (leaf) destroyed
+    * `disposition`: (label) in collection, (leaf) used up
+    * `part_count`: (label) 1, (leaf) 1
+    * `remarks`: (label) “Annotation label: 'Sampled for Rhododendron
+      tomentosum (Ledum) aggregate phylogeography, by Denali Crawford
+      (UAF), Feb. 2024'”, (leaf) EMPTY
+ * [Loan Items][4]; CSV format example:
+    * `guid`: UAM:Herb:254774
+    * `part_name`: leaf
+    * `loan_guid_prefix` UAM
+    * `loan_number`: 2024.1.Herb
+    * `update_part_disposition`: used up
+
 [1]: https://arctos.database.museum/project/10004347
 [2]: https://arctos.database.museum/Loan.cfm?action=editLoan&transaction_id=21124022
+[3]: https://arctos.database.museum/loaders/BulkloadParts.cfm
+[4]: https://arctos.database.museum/tools/BulkloadLoanItem.cfm
