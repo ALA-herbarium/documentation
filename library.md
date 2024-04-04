@@ -35,7 +35,7 @@ objects:
  * **Attributes** (either of these can be searched for in the main
      Arctos interface; at least one is needed):
     * **description** A simplified summary of the document:
-        `[doc type]. [first author, and initials]. [year].
+        `[doc type]: [first author, and initials]. [year].
          [title]`
     * **verbatim attribute** This is the **key data bibliographic data
         element**, a [BibTeX][3] representation of the document. Note
@@ -71,6 +71,12 @@ The only way to create containers is via the bulkloader.
  * [Bulkload create][4] containers using the barcode series:
    `container_type` = tag, `barcode` = barcode from series, `label`
    = “ALA document `barcode`”
+
+Generate with Awk:
+   
+```awk
+BEGIN{printf "container_type,barcode,label,institution_acronym\r"; for(i=0;i<=100;i++) printf "tag,H1304%03d,ALA document H1304%03d,UAM\r",i,i}
+```
 
 ### 2. Bulkload records
 
