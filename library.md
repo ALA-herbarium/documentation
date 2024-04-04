@@ -10,6 +10,7 @@ our current approach.
 
 An **Arctos Record** contains metadata about textual objects:
 
+ * Object type: `MaterialEntity`
  * Collection/GUID: ‘UAM:Herb’, even for cryptogam documents.
  * Identification (one only, required), to one of [this list][1] of
    ‘Documentary Objects’, e.g., Book or Letter. Not of great use,
@@ -49,6 +50,8 @@ _is vital_, and permits object tracking.
       ‘folder’ seems to be the best choice, and can be thought of as
       the _covers_ of a book or sheaf of papers. These ‘folder’
       objects can then be housed on shelves, or in boxes.
+
+An example of a book is [UAM:Herb:258400][7].
 
 ## Data management steps
 
@@ -92,3 +95,4 @@ The only way to create containers is via the bulkloader.
 [4]: https://arctos.database.museum/loaders/bulkCreateContainer.cfm
 [5]: https://arctos.database.museum/moveContainer.cfm
 [6]: https://arctos.database.museum/search.cfm
+[7]: https://arctos.database.museum/guid/UAM:Herb:258400
