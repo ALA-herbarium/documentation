@@ -80,8 +80,8 @@ The only way to create containers is via the bulkloader.
 
  * [Search][6] for key bibliographic terms in either the `verbatim
    attribute` or `description` Record attributes.
- * The records returned will not show the titles, but use the ‘Tools’
-   >> ‘View’ >> ‘Attributes’ dropdown to see the ‘verbatim attributes’
+ * The records returned will not show the titles, but use the ‘Tools’ >> 
+   ‘View’ >> ‘Attributes’ dropdown to see the ‘verbatim attributes’
    for each record.
  * Get the physical object.
 
