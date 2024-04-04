@@ -16,24 +16,27 @@ An **Arctos Record** contains metadata about textual objects:
    ‘Documentary Objects’, e.g., Book or Letter. Not of great use,
    given the BiBTex records... Maybe set _all_ to be Documentary
    Objects?
+ * Agents (optional): who contributed the document to the library, and
+   if useful, who created the document (info captured also in attributes)
  * Identifiers (optional, also contained in BiBTeX record):
     * (optional) DOI: type = `identifier`, issued by = ‘DOI
       Foundation’, relationship = ‘same edition as’
     * (optional) ISBN: type = `identifier`, issued by = ‘International ISBN
       Agency’, relationship = ‘same edition as’
- * Agents: NONE
  * Record Event, Event, Locality: NONE
  * Accession (required): ‘2024.003.Herb’, an accession of the project
    [Accessioning the ALA Library][2]. Possibly add subsequent,
    different accessions based on logical data addition initiatives,
    all in the same _Project_?
  * **Attributes** (either of these can be searched for in the main
-     Arctos interface):
-    * **Description** This is the **key data bibliographic data
+     Arctos interface; at least one is needed):
+    * **description** A simplified summary of the document:
+        `doc. type`**:** `first author, and initials`**.** `year`**.**
+        `title`
+    * **verbatim attribute** This is the **key data bibliographic data
         element**, a [BibTeX][3] representation of the document. Note
-        that newlines are not allowed in Arctos.
-    * **verbatim attribute** A simplified summary of the document:
-        `First author, and initials`**.** `year`**.** `title`
+        that newlines are not allowed in Arctos. This can be entered
+        later, if time is short.
         
 The **Parts** and their **Containers** are the representations of
 physical objects and their position in the building. Attention to this
