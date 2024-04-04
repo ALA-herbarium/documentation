@@ -15,7 +15,8 @@ An **Arctos Record** contains metadata about textual objects:
  * Identification (one only, required), to one of [this list][1] of
    ‘Documentary Objects’, e.g., Book or Letter. Not of great use,
    given the BiBTex records... Maybe set _all_ to be Documentary
-   Objects?
+   Objects?  But it is useful to quickly see if a document is a Book,
+   a Binder, or a Letter.
  * Agents (optional): who contributed the document to the library, and
    if useful, who created the document (info captured also in attributes)
  * Identifiers (optional, also contained in BiBTeX record):
@@ -66,8 +67,8 @@ The only way to create containers is via the bulkloader.
  * Find a physical series of unused (= unclassified in Arctos) barcode
    stickers (~500 long)
  * [Bulkload create][4] containers using the barcode series:
-   `container_type` = folder, `barcode` = <series>, `label` =
-   “Document, <barcode>”
+   `container_type` = folder, `barcode` = barcode from series, `label`
+   = “Document, `barcode`”
 
 ### 2. Bulkload records
 
@@ -85,7 +86,9 @@ The only way to create containers is via the bulkloader.
 ### 4. Search
 
  * [Search][6] for key bibliographic terms in either the `verbatim
-   attribute` or `description` Record attributes.
+   attribute` or `description` Record attributes. A special search
+   profile can be designed with limited fields, appropriate for the
+   document collection.
  * The records returned will not show the titles, but use the ‘Tools’ >> 
    ‘View’ >> ‘Attributes’ dropdown to see the ‘verbatim attributes’
    for each record.
