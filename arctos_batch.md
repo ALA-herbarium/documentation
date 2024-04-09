@@ -12,12 +12,22 @@
 
  * 
 
-## Bulk-unloading attributes 
+## Bulk-unloading & bulk-loading attributes 
 
- * From the Tools Directory page, select Attribute: Bulk Unload from the Records section
+ * From the Tools Directory page, from the Records section, select Attribute: Bulk Unload or Attribute: Bulkload.
  * Find the Load CSV link, and click. This page includes Definitions and Documentation outlining the format, required components, and tips. 
  * Get a template link provides a CSV file with pre-formatted delimiters - using this file for your upload is advised. File will download upon clicking and can be found in your browser downloads. 
- * Enter the *guid* of the specimen record you are updating and the *attribute_type* you are removing from the record - one record per row in the CSV template - both fields are required. 
+ * Enter the required fields provided in the field guide table, i.e. enter the *guid* of the specimen record and the *attribute_type* of the attribute you are bulk*unloading* from each record in the csv file,  
+ i.e.
+| guid           | attribute_type     |
+|----------------|--------------------|
+| UAM:Herb:60591 | verbatim_attribute |
+| UAM:Herb:60592 | verbatim_attribute |
+
+  - one record per row in the CSV template - both fields are required. 
+  For bulk*loading* check the Definitions and Documentation and supply required fields, i.e. *guid*, *attribute*, *attribute_value* 
  * Once your file is complete with all records to be modified, find the Browse button above Definitions and Documentation and click. Locate the file to be uploaded. Click Upload this file.
 * Under Upload csv the page will read *Data Uploaded - Review and Load*. Click Review and Load. 
-* cont.
+* Click Review for this user/status in the user table.
+* The record will be listed in the table. Click Check All and set Status to 'autoload'.
+* Click Change status for checked records. The record is no longer listed. 
