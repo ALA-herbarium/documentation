@@ -17,7 +17,7 @@
  * From the Tools Directory page, from the Records section, select Attribute: Bulk Unload or Attribute: Bulkload.
  * Find the Load CSV link, and click. This page includes Definitions and Documentation outlining the format, required components, and tips. 
  * Get a template link provides a CSV file with pre-formatted delimiters - using this file for your upload is advised. File will download upon clicking and can be found in your browser downloads. 
- * Enter the required fields provided in the field guide table, i.e. enter the *guid* of the specimen record and the *attribute_type* of the attribute you are bulk*unloading* from each record in the csv file,  
+ * Enter the required fields provided in the field guide table, i.e. enter the *guid* of the specimen records and the *attribute_type* of the attribute you are bulk*unloading* in the csv file,  
  i.e.
 | guid           | attribute_type     |
 |----------------|--------------------|
