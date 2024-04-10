@@ -8,41 +8,44 @@ can be generated using [this SQL][1].  The current list of cabinets
 and shelves in Rooms 018 (herb), 040 (Steffi), 003 (Cam) can be
 generated using [this SQL][2].
 
-The GSheet list of contents of overflow/storage/processing space is
+The **GSheet list** of contents of overflow/storage/processing space is
 [here][3].
 
-| Range # | Contents | Barcode | Cabinets |
-| - | - | - | - | |  |
-| 16 | Dicots | H1289163 |  |
-| 17 | Dicots | H1289164 |  |
-| 18 | Dicots | H1289165 |  |
-| 19 | Dicots | H1289166 |  |
-| 20 | Cryptogams | H1289167 |  |
-| 31 | Lichens | H1289168 |  |
-| 32 | Processing | H1289169 |  |
-| 95 | Lycophytes and Ferns | H1289142 |  |
-| 96 | Ferns and Gymnosperms | H1289143 |  |
-| 97 | Gymnosperms and Monocots | H1289144 |  |
-| 98 | Monocots | H1289145 |  |
-| 99 | Monocots | H1289146 |  |
-| 100 | Monocots | H1289147 |  |
-| 101 | Monocots | H1289148 |  |
-| 102 | Monocots | H1289149 |  |
-| 103 | Monocots | H1289150 |  |
-| 104 | Monocots | H1289151 |  |
-| 105 | Corridor, with 3 range cases | H1289152 |  |
-| 106 | Monocots | H1289153 |  |
-| 107 | Monocots and Dicots | H1289154 |  |
-| 108 | Dicots | H1289155 |  |
-| 109 | Dicots | H1289156 |  |
-| 110 | Dicots | H1289157 |  |
-| 111 | Dicots | H1289158 |  |
-| 112 | Dicots | H1289159 |  |
-| 113 | Dicots | H1289160 |  |
-| 114 | Dicots | H1289161 |  |
-| 115 | Processing | H1289162 |  |
+Range  Contents    Barcode   Cabinets 
+=====  ==========  ========  ========
+ 
+ 95    Lyco/Fern   H1289142  1-5  
+ 96    Fern/Gymno  H1289143  6-10 
+ 97    Gymno/Mono  H1289144  11-15 
+ 98    Monocots    H1289145  16-20 
+ 99    Monocots    H1289146  21-25 
+100    Monocots    H1289147  26-30 
+101    Monocots    H1289148  31-35 
+102    Monocots    H1289149  36-40 
+103    Monocots    H1289150  41-45 
+104    Monocots    H1289151  46-50  
+105    Corridor    H1289152  Armbruster 
 
+106    Monocots    H1289153  51-59 
+107    Mono/Dicot  H1289154  60-68 
+108    Dicots      H1289155  69-77 
+109    Dicots      H1289156  78-86 
+110    Dicots      H1289157  87-95 
+111    Dicots      H1289158  96-104 
+112    Dicots      H1289159  105-112 
+113    Dicots      H1289160  113-120 
+114    Dicots      H1289161  121-126 
+115    Processing  H1289162  127-132 
 
+ 32    Processing  H1289169   
+ 31    Lichens     H1289168   
+ 
+ 20    Crypto      H1289167  
+ 19    Dicots      H1289166  133-149 
+ 18    Dicots      H1289165  150-167 
+ 17    Dicots      H1289164  168-185 
+ 16    Dicots      H1289163  186-196
+```
 
 [1]: https://github.com/ALA-herbarium/arctos-tools/blob/main/sql/sql/65.sql
 [2]: https://github.com/ALA-herbarium/arctos-tools/blob/main/sql/sql/66.sql
