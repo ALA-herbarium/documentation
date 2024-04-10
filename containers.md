@@ -1,16 +1,17 @@
 # ALA Containers
 
 This is a list of the top-level container model which should be
-updated if the structure changes.  
+updated if the structure changes.
 
 The current list of ranges and cabinets in Room 009 (main collection)
 can be generated using [this SQL][1].  The current list of cabinets
 and shelves in Rooms 018 (herb), 040 (Steffi), 003 (Cam) can be
 generated using [this SQL][2].
 
-The **GSheet list** of contents of overflow/storage/processing space is
-[here][3].
+The **GSheet list** of contents of overflow/storage/processing space
+is [here][3].
 
+```
 Range  Contents    Barcode   Cabinets 
 =====  ==========  ========  ========
  
