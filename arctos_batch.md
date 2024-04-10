@@ -18,11 +18,17 @@
  * Find the Load CSV link, and click. This page includes Definitions and Documentation outlining the format, required components, and tips. 
  * Get a template link provides a CSV file with pre-formatted delimiters - using this file for your upload is advised. File will download upon clicking and can be found in your browser downloads. 
  * Enter the required fields provided in the field guide table, i.e. enter the *guid* of the specimen records and the *attribute_type* of the attribute you are bulk*unloading* in the csv file,  
- i.e.
-| guid | attribute_type |
-| :---- | :---- |
-| UAM:Herb:60591 | verbatim_attribute |
-| UAM:Herb:60592 | verbatim_attribute |
+ i.e. 
+| guid | attribute_type | 
+| :---- | :---- | 
+| UAM:Herb:60591 | verbatim_attribute | 
+| UAM:Herb:60592 | verbatim_attribute | 
+
+```
+ guid           | attribute_type
+ UAM:Herb:60591 | verbatim_attribute 
+ UAM:Herb:60592 | verbatim_attribute 
+```
 
   - one record per row in the CSV template - both fields are required. 
   For bulk*loading* check the Definitions and Documentation and supply required fields, i.e. *guid*, *attribute*, *attribute_value* 
