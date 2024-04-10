@@ -40,7 +40,8 @@ objects:
     * **verbatim attribute** This is the **key data bibliographic data
         element**, a [BibTeX][3] representation of the document. Note
         that newlines are not allowed in Arctos attributes. This can
-        be entered later, if time is short.
+        be entered later, if time is short. Online ISBN to BibTeX
+        converters: [1][10], [2][11]
 
 The **Parts** and their **Containers** are the representations of
 physical objects and their position in the building. Attention to this
@@ -112,3 +113,5 @@ BEGIN{printf "container_type,barcode,label,institution_acronym\r"; for(i=0;i<=10
 [7]: https://arctos.database.museum/guid/UAM:Herb:258400
 [8]: https://github.com/ArctosDB/arctos/issues/7631
 [9]: https://arctos.database.museum/info/barcodeseries.cfm
+[10]: https://www.bibtex.com/c/isbn-to-bibtex-converter/
+[11]: https://lead.to/amazon/com/
