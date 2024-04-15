@@ -8,6 +8,8 @@ can be generated using [this SQL][1].  The current list of cabinets
 and shelves in Rooms 018 (herb), 040 (Steffi), 003 (Cam) can be
 generated using [this SQL][2].
 
+## Main Ranges, room 009
+
 The **GSheet list** of contents of overflow/storage/processing space
 is [here][3].
 
@@ -25,7 +27,7 @@ Range  Contents    Barcode   Cabinets
 102    Monocots    H1289149  36-40 
 103    Monocots    H1289150  41-45 
 104    Monocots    H1289151  46-50  
-105    Corridor    H1289152  Armbruster 
+105    Corridor    H1289152  Armbruster and Loan Return cabinet
 
 106    Monocots    H1289153  51-59 
 107    Mono/Dicot  H1289154  60-68 
@@ -47,6 +49,29 @@ Range  Contents    Barcode   Cabinets
  17    Dicots      H1289164  168-185 
  16    Dicots      H1289163  186-196
 ```
+
+The mosses need to be switched from genus alphabetical to family
+alphabetical.
+
+## Other rooms
+
+```
+barcode  label             barcode   label
+=======  ================  ========  =======================
+ROOM018  Herbarium lab     H1302259  cabinet, Al and Carolyn
+ROOM018  Herbarium lab     H1302261  cabinet, by door
+ROOM018  Herbarium lab     H1302262  cabinet, Carolyn
+ROOM018  Herbarium lab     H1302260  cabinet, Monte and Celia
+ROOM018  Herbarium lab     H1289086  cabinet, TYPES
+
+ROOM040  Ickert-Bond off.  H1302299  cabinet, left
+ROOM040  Ickert-Bond off.  H1302300  cabinet, right
+
+ROOM003  Room 003          H1289087  cabinet, left
+ROOM003  Room 003          H1289113  cabinet, right
+```
+
+All with shelves numbered 1-12
 
 [1]: https://github.com/ALA-herbarium/arctos-tools/blob/main/sql/sql/65.sql
 [2]: https://github.com/ALA-herbarium/arctos-tools/blob/main/sql/sql/66.sql

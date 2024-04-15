@@ -10,7 +10,68 @@
  
 ## Using the Bulkloader for new catalog records
 
- * 
+Current (2024-04-11) bulkloader fields:
+
+```
+enteredby
+accn
+guid_prefix
+identifier_1_value
+identifier_1_type                          ALAAC
+identifier_2_value                         
+identifier_2_type                          collector number
+identifier_2_issued_by
+identification_1
+identification_1_order                     1
+identification_1_agent_1
+identification_1_date
+identification_1_attribute_type_1          verbatim identification
+identification_1_attribute_value_1
+identification_2
+identification_2_order
+identification_2_agent_1
+identification_2_date
+identification_2_attribute_type_1
+identification_2_attribute_value_1
+agent_1_name
+agent_1_role                               collector
+agent_2_name
+agent_2_role
+agent_3_name
+agent_3_role
+agent_4_name
+agent_4_role
+event_verbatim_date
+event_began_date
+event_ended_date
+attribute_1_type                           description
+attribute_1_value
+locality_higher_geog
+event_verbatim_locality
+locality_specific
+record_event_habitat
+locality_attribute_1_value
+locality_attribute_1_type                  georeference source
+coordinate_dec_long
+coordinate_dec_lat
+coordinate_datum                           unknown / 
+coordinate_max_error_distance
+coordinate_max_error_units
+coordinate_lat_long_units
+locality_min_elevation
+locality_max_elevation
+locality_elev_units
+record_event_type                          collection
+record_event_collecting_source             wild
+record_event_determiner
+record_event_determined_date
+record_event_verificationstatus            accepted
+part_1_name                                whole organism
+part_1_condition                           unchecked
+part_1_count                               1
+part_1_disposition                         in collection
+part_1_barcode
+```
 
 ## Bulk-unloading & bulk-loading attributes 
 
