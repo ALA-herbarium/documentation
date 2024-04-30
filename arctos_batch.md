@@ -89,7 +89,11 @@ part_1_barcode
   - one record per row in the CSV template - both fields are required. 
   For bulk*loading* check the Definitions and Documentation and supply required fields, i.e. *guid*, *attribute*, *attribute_value* 
  * Once your file is complete with all records to be modified, find the Browse button above Definitions and Documentation and click. Locate the file to be uploaded. Click Upload this file.
-* Under Upload csv the page will read *Data Uploaded - Review and Load*. Click Review and Load. 
-* Click Review for this user/status in the user table.
-* The record will be listed in the table. Click Check All and set Status to 'autoload'.
-* Click Change status for checked records. The record is no longer listed. 
+ * Under Upload csv the page will read *Data Uploaded - Review and Load*. Click Review and Load. 
+ * Click Review for this user/status in the user table.
+ * The record will be listed in the table. Click Check All and set Status to 'autoload'.
+ * Click Change status for checked records. The record is no longer listed. 
+
+## Using the bulkloader to update/add collectors
+
+ * 
