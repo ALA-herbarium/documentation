@@ -1,9 +1,8 @@
 # Collection range search for physical specimens
 
-## Search of ICMS-only records in range
+## Search of records in range
 
- * 
-
-## Search of ICMS-only records in lab
-
- * 
+ * Identify specimens to be located at UAMN, i.e. ICMS-only records.
+ * Run Arctos query to locate recorded specimens of same genus-species.
+ * Search range/lab in appropriate genus-species section using information provided, i.e. collector, ident. date, locality.
+ 
