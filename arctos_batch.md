@@ -94,6 +94,3 @@ part_1_barcode
  * The record will be listed in the table. Click Check All and set Status to 'autoload'.
  * Click Change status for checked records. The record is no longer listed. 
 
-## Using the bulkloader to update/add collectors
-
- * 
