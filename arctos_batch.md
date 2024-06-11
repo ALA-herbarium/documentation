@@ -94,3 +94,4 @@ part_1_barcode
  * The record will be listed in the table. Click Check All and set Status to 'autoload'.
  * Click Change status for checked records. The record is no longer listed. 
 
+**Note**: edits made via the batch component loaders are attributed to user 'dba' not the user who submitted the batch.
