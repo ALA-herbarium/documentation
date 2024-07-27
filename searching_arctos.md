@@ -33,8 +33,13 @@ to ALA collections (vascular, cryptogams, fungi and algae).
     * In ‘Type or Rank’ enter ‘synonyms’ (the field name of the list
       of synonyms for a taxon from WFO),
     * In ‘Source’ enter ‘UAM Plants’ 
+ * **To search for specimens with any identification related in any
+     way to your query name**:
+    * Use the ‘Any taxon, ID, common name’ search box. This will
+      search all classifications, common names, and the Arctos names
+      relationships tables for your search term.
 
-Background:
+### Background on taxonomic information
 
  * A specimen in Arctos must have **at least one taxonomic
    identification**, but may have several identifications corresponding
