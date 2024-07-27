@@ -12,24 +12,35 @@ to ALA collections (vascular, cryptogams, fungi and algae).
 From most to least specific:
 
  * **1. To search for specimens with latest (current) identification
-     matching your query name**: 
-    * In the Customize Search and Results dropdown at the top of the
+     matching your query name**:
+    * First, search for the name in the [Taxonomy Search][4] (there is
+      no way to do this search via the main [search page][2]).
+    * In the name’s ‘Usage’ section, click on ‘Used in Accepted
+      Identifications’. A search will start. 
+    * When the results have been generated, edit the ‘ID Order’ field
+      from ‘>0’ to ‘1’ and click ‘Submit Query’.
+<!-- * In the Customize Search and Results dropdown at the top of the
       page, select ‘Customize or Manage Profile’. Click the
       ‘Identification Order’ check box under ‘Search Options’ and then
       click ‘Use Selected’. 
     * Enter your name in the Identification box, with the kind of
       match required (‘match’ for exact match)
-    * Enter ‘1’ in the Identification Order field.
+    * Enter ‘1’ in the Identification Order field. -->
  * **2. To search for specimens with any identification (latest or prior)
      matching your query name**: 
-    * Enter your name in the Identification box, with the kind of
-      match required (‘match’ for exact match)
+    * First, search for the name in the [Taxonomy Search][4] (there is
+      no way to do this search via the main [search page][2]).
+    * In the name’s ‘Usage’ section, click on ‘Used in Accepted
+      Identifications’. A search will start. 
+<!-- * Enter your name in the Identification box, with the kind of
+      match required (‘match’ for exact match) -->
  * **3. To search for specimens with any identification matching
      your query name, and identifications to a synonym of your query
      name**: 
-    * In the Customize Search and Results dropdown at the top of the
-      page, select ‘Customize or Manage Profile’. Click the ‘Taxonomy’
-      check box under ‘Search Options’ and then click ‘Use Selected’.
+    * In main [Search page][2], the Customize Search and Results
+      dropdown at the top of the page, select ‘Customize or Manage
+      Profile’. Click the ‘Taxonomy’ check box under ‘Search Options’
+      and then click ‘Use Selected’.
     * Do not enter anything in the Identification box. Instead,
     * In ‘Taxon Term’ enter your name preceded by ‘%’ (for ‘contains’),
     * In ‘Type or Rank’ enter ‘synonyms’ (the field name of the list
@@ -39,7 +50,8 @@ From most to least specific:
      way to your query name**:
     * Use the ‘Any taxon, ID, common name’ search box. This will
       search all classifications, common names, and the Arctos names
-      relationships tables for your search term.
+      relationships tables for your search term ([more][3]). [search
+      argument = ‘taxon_name’]
 
 ### Background on taxonomic information
 
@@ -74,3 +86,5 @@ From most to least specific:
 
 [1]: https://wfoplantlist.org/
 [2]: https://arctos.database.museum/search.cfm?guid_prefix=UAM:Herb,UAMb:Herb,UAM:Myco,UAM:Alg
+[3]: https://handbook.arctosdb.org/how_to/How_to_Search_for_Specimens_with_Identification_and_Taxonomy.html#any-taxon-id-common-name
+[4]: https://arctos.database.museum/taxonomy.cfm
