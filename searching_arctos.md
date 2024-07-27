@@ -9,12 +9,10 @@ to ALA collections (vascular, cryptogams, fungi and algae).
 
 ## Searching for specimens by taxonomy
 
- * **To search for specimens with any identification (latest or prior)
-     exactly equal to your query name**: 
-    * Enter your name in the Identification box, with the kind of
-      match required (‘match’ for exact match)
- * **To search for specimens with latest (current) identification
-     exactly equal to your query name**: 
+From most to least specific:
+
+ * **1. To search for specimens with latest (current) identification
+     matching your query name**: 
     * In the Customize Search and Results dropdown at the top of the
       page, select ‘Customize or Manage Profile’. Click the
       ‘Identification Order’ check box under ‘Search Options’ and then
@@ -22,7 +20,11 @@ to ALA collections (vascular, cryptogams, fungi and algae).
     * Enter your name in the Identification box, with the kind of
       match required (‘match’ for exact match)
     * Enter ‘1’ in the Identification Order field.
- * **To search for specimens with any identification exactly equal to
+ * **2. To search for specimens with any identification (latest or prior)
+     matching your query name**: 
+    * Enter your name in the Identification box, with the kind of
+      match required (‘match’ for exact match)
+ * **3. To search for specimens with any identification matching
      your query name, and identifications to a synonym of your query
      name**: 
     * In the Customize Search and Results dropdown at the top of the
@@ -33,7 +35,7 @@ to ALA collections (vascular, cryptogams, fungi and algae).
     * In ‘Type or Rank’ enter ‘synonyms’ (the field name of the list
       of synonyms for a taxon from WFO),
     * In ‘Source’ enter ‘UAM Plants’ 
- * **To search for specimens with any identification related in any
+ * **4. To search for specimens with any identification related in any
      way to your query name**:
     * Use the ‘Any taxon, ID, common name’ search box. This will
       search all classifications, common names, and the Arctos names
