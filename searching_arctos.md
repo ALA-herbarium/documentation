@@ -18,21 +18,13 @@ From most to least specific:
     * In the name’s ‘Usage’ section, click on ‘Used in Accepted
       Identifications’. A search will start. 
     * When the results have been generated, edit the ‘ID Order’ field
-      from ‘>0’ to ‘1’ and click ‘Submit Query’.   <!--  * In the
-      Customize Search and Results dropdown at the top of the page,
-      select ‘Customize or Manage Profile’. Click the ‘Identification
-      Order’ check box under ‘Search Options’ and then click ‘Use
-      Selected’.
-    * Enter your name in the Identification box, with the kind of
-      match required (‘match’ for exact match)
-    * Enter ‘1’ in the Identification Order field. -->
+      from ‘>0’ to ‘1’ and click ‘Submit Query’.
  * **2. To search for specimens with any identification (latest or prior)
      matching your query name**: 
     * First, search for the name in the [Taxonomy Search][4] (there is
       no way to do this search via the main [search page][2]).
     * In the name’s ‘Usage’ section, click on ‘Used in Accepted
-      Identifications’. A search will start.  <!-- * Enter your name in the Identification box, with the kind of
-      match required (‘match’ for exact match) -->
+      Identifications’. A search will start.
  * **3. To search for specimens with any identification matching
      your query name, and identifications to a synonym of your query
      name**: 
@@ -51,6 +43,15 @@ From most to least specific:
       search all classifications, common names, and the Arctos names
       relationships tables for your search term ([more][3]). [search
       argument = ‘taxon_name’]
+
+<!--  * In the
+      Customize Search and Results dropdown at the top of the page,
+      select ‘Customize or Manage Profile’. Click the ‘Identification
+      Order’ check box under ‘Search Options’ and then click ‘Use
+      Selected’.
+    * Enter your name in the Identification box, with the kind of
+      match required (‘match’ for exact match)
+    * Enter ‘1’ in the Identification Order field. -->
 
 ### Background on taxonomic information
 
