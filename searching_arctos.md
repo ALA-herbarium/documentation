@@ -18,7 +18,7 @@ From most to least specific:
     * In the name’s ‘Usage’ section, click on ‘Used in Accepted
       Identifications’. A search will start. 
     * When the results have been generated, edit the ‘ID Order’ field
-      from ‘>0’ to ‘1’ and click ‘Submit Query’. <!-- * In the
+      from ‘>0’ to ‘1’ and click ‘Submit Query’.   <!--  * In the
       Customize Search and Results dropdown at the top of the page,
       select ‘Customize or Manage Profile’. Click the ‘Identification
       Order’ check box under ‘Search Options’ and then click ‘Use
