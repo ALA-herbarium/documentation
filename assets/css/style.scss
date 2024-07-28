@@ -3,6 +3,10 @@
 
 @import "{{ site.theme }}";
 
-header {
+/* header {
+  display: none;
+} */
+
+h1[href="https://ala-herbarium.github.io/documentation/"] {
   display: none;
 }
