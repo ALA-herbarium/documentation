@@ -51,7 +51,8 @@ From most to least specific:
       Selected’.
     * Enter your name in the Identification box, with the kind of
       match required (‘match’ for exact match)
-    * Enter ‘1’ in the Identification Order field. -->
+    * Enter ‘1’ in the Identification Order field. 
+-->
 
 ### Background on taxonomic information
 
