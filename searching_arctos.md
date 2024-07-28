@@ -85,6 +85,10 @@ From most to least specific:
    details. The ‘synonymy’ field in the WFO classification can also be
    searched (see above).
 
+----
+
+[ Got to [documentation index](index.html) page ]
+
 [1]: https://wfoplantlist.org/
 [2]: https://arctos.database.museum/search.cfm?guid_prefix=UAM:Herb,UAMb:Herb,UAM:Myco,UAM:Alg
 [3]: https://handbook.arctosdb.org/how_to/How_to_Search_for_Specimens_with_Identification_and_Taxonomy.html#any-taxon-id-common-name
