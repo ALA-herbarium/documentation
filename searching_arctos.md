@@ -1,4 +1,4 @@
-# Searching in Arctos
+# Searching for ALA records in Arctos
 
 This HOWTO is aimed at users searching for information about the
 specimens held at the University of Alaska Museum of the North
