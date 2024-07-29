@@ -13,18 +13,18 @@ From most to least specific:
 
  * **1. To search for specimens with latest (current) identification
      matching your query name**:
-    * First, search for the name in the [Taxonomy Search][4] (there is
-      no way to do this search via the main [search page][2]).
-    * In the name’s ‘Usage’ section, click on ‘Used in Accepted
-      Identifications’. A search will start. 
-    * When the results have been generated, edit the ‘ID Order’ field
-      from ‘>0’ to ‘1’ and click ‘Submit Query’.
+    * In the main search page, enter your query name in the
+      Identification box, with the kind of match required (‘match’ for
+      exact match).
  * **2. To search for specimens with any identification (latest or prior)
      matching your query name**: 
     * First, search for the name in the [Taxonomy Search][4] (there is
       no way to do this search via the main [search page][2]).
     * In the name’s ‘Usage’ section, click on ‘Used in Accepted
       Identifications’. A search will start.
+    * To exclude the most current identification, edit the ‘ID Order’
+      field from ‘>0’ to ‘>1’ (or any other desired filter) and click
+      ‘Submit Query’ to search again.
  * **3. To search for specimens with any identification matching
      your query name, and identifications to a synonym of your query
      name**: 
@@ -43,16 +43,6 @@ From most to least specific:
       search all classifications, common names, and the Arctos names
       relationships tables for your search term ([more][3]). [search
       argument = ‘taxon_name’]
-
-<!--  * In the
-      Customize Search and Results dropdown at the top of the page,
-      select ‘Customize or Manage Profile’. Click the ‘Identification
-      Order’ check box under ‘Search Options’ and then click ‘Use
-      Selected’.
-    * Enter your name in the Identification box, with the kind of
-      match required (‘match’ for exact match)
-    * Enter ‘1’ in the Identification Order field. 
--->
 
 ### Background on taxonomic information
 
@@ -83,7 +73,10 @@ From most to least specific:
    (from the label image, verbatim identification field or ‘A
    {string}’) the WFO classification can be consulted for the synonymy
    details. The ‘synonymy’ field in the WFO classification can also be
-   searched (see above).
+   searched (see above). This field contains, for each taxon, a
+   concatenation of the taxon’s own name, and names (with author
+   strings) of other taxa that are sunonyms fof the entry’s name; see
+   example of _[Spirea crenata][5]_.
 
 ----
 
@@ -93,4 +86,4 @@ From most to least specific:
 [2]: https://arctos.database.museum/search.cfm?guid_prefix=UAM:Herb,UAMb:Herb,UAM:Myco,UAM:Alg
 [3]: https://handbook.arctosdb.org/how_to/How_to_Search_for_Specimens_with_Identification_and_Taxonomy.html#any-taxon-id-common-name
 [4]: https://arctos.database.museum/taxonomy.cfm
-
+[5]: https://arctos.database.museum/name/Spiraea%20crenata#UAMPlants
