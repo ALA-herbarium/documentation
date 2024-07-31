@@ -80,10 +80,11 @@ From most to least specific:
 
 ----
 
-[ Got to [documentation index](index.html) page ]
+[ Go to [documentation index](index.html) | [source](https://github.com/ALA-herbarium/documentation/) of this page ]
 
 [1]: https://wfoplantlist.org/
 [2]: https://arctos.database.museum/search.cfm?guid_prefix=UAM:Herb,UAMb:Herb,UAM:Myco,UAM:Alg
 [3]: https://handbook.arctosdb.org/how_to/How_to_Search_for_Specimens_with_Identification_and_Taxonomy.html#any-taxon-id-common-name
 [4]: https://arctos.database.museum/taxonomy.cfm
 [5]: https://arctos.database.museum/name/Spiraea%20crenata#UAMPlants
+

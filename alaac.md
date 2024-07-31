@@ -88,6 +88,10 @@ beginning at, say, 280,001, and keeping only a digital tally (well
 backed up!), will greatly facilitate managing ALAACs.  Note that
 before then, the 32 Arctos records with erroneous ALAACs of >= 280,001
 need to be fixed.
-   
+
+----
+
+[ Go to [documentation index](index.html) | [source](https://github.com/ALA-herbarium/documentation/) of this page ]
+
 [1]: https://drive.google.com/drive/u/0/folders/18aIDJoriQS0e5jXET8qsaONnsi1P_kup
 [2]: https://docs.google.com/spreadsheets/d/1S9LbdYfRegjyaFLVTWbc-Mk2qiBk-X__Mb6NYavRxaM
