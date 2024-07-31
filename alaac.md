@@ -54,7 +54,11 @@ the starting numbers in the prefix series were:
  * Bryophytes: **98836**; next: **B17896**
  * Lichens: **98772**; next: **L9710**   
  * Vascular: **99056**; next: **V68726**
- 
+
+(In theory, 861 + 17895 + 9709 + 68725 should sum to 99056. They
+actually sum to 97190, indicating about 2,000 numbers missed from the
+overall sequence.)
+
 As of today (2024-07-31), the last series given out end in: A11068,
 B43625, L39354, and V182504. Theoretically, these mark the total
 numbers allocated in each class, including (non-sequential) series
