@@ -10,7 +10,9 @@ reflect the ALAAC series within them), and [transcribed][2].
 
 Note that an old page in the front of the ALAAC book says there was a
 Wordstar file called `ACC.LIS` on the ‘Kaypro’. We currently have no
-idea if there is a copy of this file anywhere.
+idea if there is a copy of this file anywhere.  However, the ALAAC
+notes from 1987-1992 are a dot-matrix printout, and probably
+correspond to the contents of this file.
 
 The pages in the book are divided into Vascular plants, Bryophytes,
 Lichens, Algae, and a tiny Fungi section.  The early mixed,
@@ -48,19 +50,17 @@ number. The four prefix formations: ‘A’lgae, ‘B’ryophytes, ‘L’ichens
 and ‘V’ascular plants.  The last number in the no-prefix series, and
 the starting numbers in the prefix series were:
 
- * Algae: **65276** /  **A862**
- * Bryophytes: **98836** / **B17896**
-   written in book and used)
- * Lichens: **98772** / **L9710**   
- * Vascular: **99056** / **V68726**
+ * Algae: **65276**; next: **A862**
+ * Bryophytes: **98836**; next: **B17896**
+ * Lichens: **98772**; next: **L9710**   
+ * Vascular: **99056**; next: **V68726**
  
-The last no-prefix numbers
-
-As of 2024-07-31, the last series given out end in: A11068, B43625,
-L39354, and V182504. Theoretically, these mark the total numbers
-allocated in each class, including (non-sequential) series within the
-non-prefix period. Hence a total of 276,551 ALAAC numbers have been
-allocated.
+As of today (2024-07-31), the last series given out end in: A11068,
+B43625, L39354, and V182504. Theoretically, these mark the total
+numbers allocated in each class, including (non-sequential) series
+within the non-prefix period. Hence a total of 276,551 ALAAC numbers
+should have been allocated. For reference, there are currently 269,924
+ALA Arctos records.
 
 ## Discrepancies with Arctos data
  
@@ -72,7 +72,7 @@ of ALAACs:
    larger than 99056, ranging from 99062 to 6744136 (`gawk
    '$0~/^[ 0]*[1-9]+/ {if(gensub(/^[ 0]+/,"","G",$0)+0>99056)x++}
    END{print x}' alaac_values` and `gawk '$0~/^[ 0]*[1-9]+/ {print
-   gensub(/^[ 0]+/,"","G",$0)}' alaac_values | sort -n | less`
+   gensub(/^[ 0]+/,"","G",$0)}' alaac_values | sort -n | less`)
  
 ## Moving forward
 
