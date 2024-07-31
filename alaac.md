@@ -49,7 +49,7 @@ and ‘V’ascular plants.  The last number in the no-prefix series, and
 the starting numbers in the prefix series were:
 
  * Algae: **65276** /  **A862**
- * Bryophytes: **98836** / **B18042** (but B17905 to B17907 were also
+ * Bryophytes: **98836** / **B17896**
    written in book and used)
  * Lichens: **98772** / **L9710**   
  * Vascular: **99056** / **V68726**
@@ -81,7 +81,9 @@ errors in bookkeeping, what was stamped on the sheets, and in data
 entry into Arctos. There is no strong reason now to maintain separate
 Accession numbers. Moving to a unified accession number series,
 beginning at, say, 300,000, and keeping only a digital tally (well
-backed up!), will greatly facilitate managing ALAACs.
+backed up!), will greatly facilitate managing ALAACs.  Note that
+before then, the 32 Arctos records with erroneous ALAACs of >= 300,000
+need to be fixed.
    
 [1]: https://drive.google.com/drive/u/0/folders/18aIDJoriQS0e5jXET8qsaONnsi1P_kup
 [2]: https://docs.google.com/spreadsheets/d/1S9LbdYfRegjyaFLVTWbc-Mk2qiBk-X__Mb6NYavRxaM
