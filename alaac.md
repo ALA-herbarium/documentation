@@ -80,9 +80,9 @@ Keeping track of four separate series is hard and has generated many
 errors in bookkeeping, what was stamped on the sheets, and in data
 entry into Arctos. There is no strong reason now to maintain separate
 Accession numbers. Moving to a unified accession number series,
-beginning at, say, 300,000, and keeping only a digital tally (well
+beginning at, say, 280,001, and keeping only a digital tally (well
 backed up!), will greatly facilitate managing ALAACs.  Note that
-before then, the 32 Arctos records with erroneous ALAACs of >= 300,000
+before then, the 32 Arctos records with erroneous ALAACs of >= 280,001
 need to be fixed.
    
 [1]: https://drive.google.com/drive/u/0/folders/18aIDJoriQS0e5jXET8qsaONnsi1P_kup
