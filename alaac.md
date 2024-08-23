@@ -1,4 +1,31 @@
-# History and current status of the ALAAC identifier series
+# Current status and history of the ALAAC identifier series
+
+## Current
+
+Beginning in August 2024, we are (returning to) using a single series
+of ALA Accession Numbers (ALAAC) for all new specimens, starting with
+number 280,001. We are also no longer registering these in the old
+ALAAC book, but in an [online spreadsheet][3]. These changes are
+intended to reduce errors in the application of ALAACs, and were
+discussed in this [GH Issue][4]
+
+### Allocating an ALAAC series
+
+ * In the [ALAAC allocation][3] spreadsheet, fill in date, your name,
+   the Arctos accession code, and a brief description of the
+   specimens.
+ * Count the number of specimens needing ALAACs (or estimate it
+   _accurately_) and enter this into the ‘n’ field. The blue ‘first’
+   and ‘last’ _suggestions_ will be calculated, but _you_ must also
+   fill in the white _actual_ ‘first’ and ‘last’.
+ * If there is a difference between the corresponding blue and white
+   values, and error will appear in the ‘check’ column. This indicates
+   an error somewhere in the spreadsheet.
+ * _Do not_ revise preexisting rows, as this will create an error
+   across all rows.
+
+When an ALAAC series has been claimed, apply these numbers
+sequentially to the specimens, using the number stamp.
 
 ## The ALAAC book
 
@@ -95,3 +122,5 @@ need to be fixed.
 
 [1]: https://drive.google.com/drive/u/0/folders/18aIDJoriQS0e5jXET8qsaONnsi1P_kup
 [2]: https://docs.google.com/spreadsheets/d/1S9LbdYfRegjyaFLVTWbc-Mk2qiBk-X__Mb6NYavRxaM
+[3]: https://docs.google.com/spreadsheets/d/1-yqYc7Lq2Bxxa10AAsCfJ_sV_evqKRJGlTfOxN6dTmQ
+[4]: https://github.com/ALA-herbarium/issues/issues/94

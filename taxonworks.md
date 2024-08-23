@@ -25,3 +25,28 @@ The extra edit in 3 is necessary unfortunately: setting both
 Publication and Author in step one, and performing step 2 will not
 trigger the correct ex/in label.
 
+## What determines the identifier in the ‘blue box’ for a CollectioObject
+
+The _last_ identifier is the one that becomes the shorthand identifier
+in the blue box.  For the _Ephedra_ the most meaningful shorthand is
+the collector code (first collector’s surname plus number/code).
+
+ * Do not use the ‘catalog number’ in the main form - this is
+   confusing. Just use the radial annotator ‘Identifiers’. 
+ * Select Catalog Number (not Trip Number)
+ * Find the [identifier namespace][1] ‘Collector name(s)
+   (=dwc:recordedBy) [space] collector's number or code
+   (=dwc:recordNumber)’
+ * Write (just) the surname of the primary collector and the life
+   sequential number, or annual number, or other code for the
+   collection.
+ * If you need to add other Identifiers (e.g., Mobot accession, ALA
+   accession, etc.), add it, then delete the desired collector code,
+   and re-add it so that it is at the bottom of the list.
+
+Note that this collector code is not globally unique, since other
+duplicates of the the collection will have the same identifier. In
+case you need two or more duplicates in your database, add an _a_ and
+_b_, etc., to the collection number.
+   
+[1]: https://sfg.taxonworks.org/namespaces/10134
