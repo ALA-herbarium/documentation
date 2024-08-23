@@ -25,7 +25,7 @@ The extra edit in 3 is necessary unfortunately: setting both
 Publication and Author in step one, and performing step 2 will not
 trigger the correct ex/in label.
 
-## What determines the identifier in the ‘blue box’ for a CollectioObject
+## What determines the identifier in the ‘blue box’ for a CollectionObject
 
 The _last_ identifier is the one that becomes the shorthand identifier
 in the blue box.  For the _Ephedra_ the most meaningful shorthand is
