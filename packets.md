@@ -38,7 +38,10 @@ To load the packet:
  * Open up the packet completely.
  * Lay a card (pre-cut to 3.5 × 5.25 inches) in the middle.
  * Overlay with a 3 × 4 inch piece of cushioning cotton
- * Place specimen material on top of the cushion
- * Carefully fold the package. Allow the front to bulge as needed
+ * Place specimen material on top of the cushion. Make sure to remove
+   as much non-specimen material (soil, other plants, leaf litter,
+   etc.)as possible.
+ * Carefully fold the package. Allow the front to bulge as needed.
+ 
  
  
