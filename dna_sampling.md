@@ -13,7 +13,7 @@ data:
       organism or leaf)
     * Disposition: ‘used up’
     
-This will add subsampled parts without barcoded containers, greyed out
+This will add subsampled parts without barcoded containers, grayed out
 because they are used up.
 
 Second, add an **attribute** to each Record, either via the bulkloader, or using the Record Search and dropdown Tools -> Manage -> Attributes.
