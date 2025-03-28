@@ -40,7 +40,11 @@ monospaced type)
       is the _Specimen_ (aka _Collection_). 
     * Each _specimen_ has a unique `ALAAC` (ALA accession number), so
       there should be a one-to-one mapping of Arctos `GUID` to
-      `ALAAC`.
+      `ALAAC`.  Note: rarely, ALA stores duplicates of the same
+      physical collection, which have the same collector number, the
+      same ALAAC, and should be represented by the same Arctos record
+      (i.e. same GUID); these duplicates will however have different
+      barcodes.
  * PARTS  
     * Each _Specimen_ may contain one or more elements of several
       kinds:
@@ -70,6 +74,8 @@ monospaced type)
        * A physically large plant is cut up and pasted to several
          _herbarium sheets_ (**Part** types: **whole organism** and/or
          **leaf**)
+       * An exact duplicate of a collection (i.e., all data the same,
+         but two or more physical sheets).
        * There is an _annotation label_ on the _herbarium sheet_, other
          than a ‘det slip’ (which are recorded in Arctos as additional
          **Identifications**). This is represented as a **Part** of
